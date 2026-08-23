@@ -1,0 +1,132 @@
+version: "1.0-task7-frozen"
+frozen_on: "2026-08-23"
+
+estimand:
+  label: "conditional within-region short-run association"
+  causal_claim: false
+  unit: "NEM region-hour"
+  interpretation: "Change in an outcome associated with a 10 percentage-point change in wind-plus-utility-solar output divided by operational demand."
+
+sample:
+  full_start_aest: "2019-07-01 00:00:00"
+  full_end_aest: "2025-06-30 23:00:00"
+  headline_regions: [NSW1, VIC1, QLD1, SA1]
+  robustness_regions: [TAS1]
+  frequency: "1h"
+  drop_if: ["renewable_share_ws is missing", "demand_mw <= 0", "an outcome or required control is missing"]
+  weighting: "unweighted region-hour"
+  five_minute_settlement_start_aest: "2021-10-01 00:00:00"
+
+exposure:
+  headline:
+    source: renewable_share_ws
+    transformed: renewable_share_ws_10pp_winsor_p999
+    formula: "10 * min(renewable_share_ws, pooled headline-sample p99.9)"
+    capped: "upper-winsorised at a precomputed p99.9 only to control near-zero-denominator leverage"
+    raw_ratio_transparency: renewable_share_ws_10pp
+  alternatives:
+    - renewable_share_broad_10pp
+    - wind_share_10pp
+    - solar_utility_share_10pp
+    - renewable_output_ws_100mw
+
+outcomes:
+  continuous_price:
+    headline: price_asinh
+    transparency: rrp_aud_mwh
+    outlier_robustness: price_winsor_001_999
+  negative_price:
+    headline: negative_price_any
+    intensity: negative_price_share_5min
+    threshold_robustness_aud_mwh: [-50, -100]
+  volatility:
+    headline: intrahour_price_sd_asinh
+    transparency: intrahour_price_sd
+  upper_tail_quantiles: [0.50, 0.90, 0.95]
+
+controls:
+  headline:
+    - log_demand_centered
+    - log_demand_centered_sq
+  excluded_from_headline_as_post_treatment:
+    - coal output
+    - gas output
+    - battery charge/discharge
+    - interconnector flow
+  weather_extension: "Add region-specific temperature/resource controls only after source and exclusion assumptions are audited."
+
+fixed_effects:
+  headline:
+    - region_by_aest_year_month
+    - exact_aest_hour_timestamp
+  comparison:
+    - region
+    - aest_year_month
+    - local_hour_by_local_weekday
+  aggressive_robustness:
+    - region_by_aest_date
+    - exact_aest_hour_timestamp
+
+dynamics:
+  contemporaneous: renewable_share_ws_10pp_winsor_p999
+  lag_blocks_hours:
+    lag_1_3: [1, 2, 3]
+    lag_4_6: [4, 5, 6]
+    lag_7_12: [7, 8, 9, 10, 11, 12]
+    lag_13_24: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+  report:
+    - contemporaneous coefficient
+    - block coefficients
+    - sum of contemporaneous and block coefficients
+  note: "Lags describe dynamics and do not by themselves solve simultaneity."
+
+inference:
+  headline_covariance: "cluster by canonical AEST ISO week"
+  rationale: "More than 300 time-block clusters allow arbitrary within-week serial and cross-region dependence without relying on four region clusters."
+  robustness:
+    - "Driscoll-Kraay, 168-hour bandwidth"
+    - "AEST-week block bootstrap for cumulative and nonlinear contrasts"
+    - "two-way region and week clustering reported only as a benchmark"
+  bootstrap_replications: 399
+  confidence_level: 0.95
+
+heterogeneity:
+  prespecified:
+    - region
+    - peak versus off-peak
+    - season [DJF, MAM, JJA, SON]
+    - pre versus post five-minute settlement
+  multiplicity: "Report raw p-values and Holm-adjusted p-values within each heterogeneity family."
+
+binary_model:
+  headline: "linear probability model with headline high-dimensional fixed effects"
+  nonlinear_robustness: "Logit and Probit with region-by-month and local-hour-by-weekday effects; cluster/bootstrap by AEST week."
+  note: "Nonlinear models do not use exact-hour fixed effects because four cross-sectional observations per hour create separation/incidental-parameter problems."
+
+quantile_model:
+  status: "secondary"
+  formula_controls:
+    - region_by_aest_year_month
+    - local_hour_by_local_weekday
+    - log_demand_centered
+    - log_demand_centered_sq
+  inference: "399-replication AEST-week block bootstrap"
+  note: "Different, coarser time controls must be disclosed beside quantile results."
+
+robustness:
+  prespecified:
+    - include TAS1
+    - post-five-minute-settlement-only sample
+    - broad renewable definition including hydro
+    - separate wind and utility-solar shares
+    - raw uncapped wind-solar share
+    - wind-plus-solar output in 100 MW units with flexible demand controls
+    - raw and 0.1/99.9-percent winsorised level prices
+    - cap headline renewable share at one only as a labelled sensitivity
+    - region-by-date plus exact-hour fixed effects
+    - alternative negative-price thresholds
+  forbidden_without_version_bump:
+    - choose lags after inspecting significance
+    - silently change the frozen p99.9 exposure treatment
+    - drop valid price spikes from the headline model
+    - interpret fixed-effect coefficients as causal effects

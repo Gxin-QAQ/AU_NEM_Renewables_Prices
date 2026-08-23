@@ -1,0 +1,28 @@
+# Data and generated research artefacts
+data/raw/
+data/interim/
+data/processed/
+data/external/
+outputs/figures/
+outputs/tables/
+*.parquet
+*.zip
+*.csv
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.venv/
+
+# Keep the folder structure in version control
+!data/**/.gitkeep
+!outputs/**/.gitkeep
+
+# Keep compact final result tables so the executed results notebook remains
+# inspectable after a fresh clone. Large data and intermediate CSVs stay local.
+!outputs/tables/
+!outputs/tables/*.csv
+
+# Keep immutable-source provenance copies outside the ignored data tree.
+!provenance/
+!provenance/*.csv
+!provenance/*.md

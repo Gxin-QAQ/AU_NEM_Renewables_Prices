@@ -1,0 +1,19 @@
+project:
+  sample_start: "2019-07-01"
+  sample_end: "2025-06-30"
+  timezone: "Australia/Brisbane"  # NEM market time: fixed AEST (UTC+10), no DST
+  headline_regions: [NSW1, VIC1, QLD1, SA1]
+  robustness_regions: [TAS1]
+  target_frequency: "1h"
+
+definitions:
+  renewable_headline: [WIND, SOLAR_UTILITY]
+  renewable_broad: [WIND, SOLAR_UTILITY, HYDRO]
+  negative_price_threshold_aud_mwh: 0
+  peak_hours_local: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+  peak_weekdays_only: true
+
+data:
+  aemo_dispatch_documentation: "https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/market-management-system-mms-data/dispatch"
+  aemo_data_overview: "https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem"
+  bom_climate_data_online: "https://www.bom.gov.au/climate/cdo/"

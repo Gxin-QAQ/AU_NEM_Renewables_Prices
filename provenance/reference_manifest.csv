@@ -1,0 +1,3 @@
+source_name,source_url,downloaded_at_utc,local_path,sha256,bytes,source_vintage
+AEMO DUDETAILSUMMARY,https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM/2025/MMSDM_2025_10/MMSDM_Historical_Data_SQLLoader/DATA/PUBLIC_ARCHIVE%23DUDETAILSUMMARY%23FILE01%23202510010000.zip,2026-08-22T18:40:36.511811+00:00,data/external/aemo_reference/DUDETAILSUMMARY_202510.zip,ecad51798651881715feec2ce9c3d9a44685c156c648ab31cdeea9a702d9e1c6,347669,MMSDM 2025-10 FILE01
+OpenElectricity facility export,https://data.opennem.org.au/v4/facilities/au_facilities.json,2026-08-22T18:40:40.633626+00:00,data/external/openelectricity/au_facilities_20260823.json,02d2382e99b82dc7c4bf5105e8cc3be97587ef37d9bb243940f34b9ba83fbd1a,1398209,captured 2026-08-23; dynamic export

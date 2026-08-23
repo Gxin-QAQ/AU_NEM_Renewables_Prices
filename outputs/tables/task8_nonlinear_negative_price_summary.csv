@@ -1,0 +1,3 @@
+model,converged,iterations,nobs,week_clusters,exposure_average_marginal_effect,ame_inference
+logit,True,29,210399,314,0.04020672006515874,point estimate only; week-block bootstrap is reserved for Task 9
+probit,True,31,210399,314,0.03905878845297957,point estimate only; week-block bootstrap is reserved for Task 9
