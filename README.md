@@ -59,7 +59,7 @@ notebooks/    探索性与最终分析 Notebook
 outputs/      生成图形与可提交的紧凑结果表
 provenance/   可提交的来源 URL、版本和 SHA-256 清单副本
 report/       最终英文报告、Markdown 源与可复现 DOCX 构建输入
-site/         静态 Plotly 看板、紧凑公开数据载荷和本地预览说明
+site/         静态交互看板、紧凑公开数据载荷和本地预览说明
 src/          可复现的下载、面板构建和估计模块
 tests/        数据质量与转换测试
 ```
@@ -80,7 +80,7 @@ tests/        数据质量与转换测试
 
 ## 环境与复现
 
-所有命令均使用项目本地虚拟环境 `.venv`。Task 4 在其中安装最小构建栈；后续计量和报告依赖由 `requirements.txt` 管理。不得向系统 Python 安装任何项目包。
+所有命令均使用项目本地虚拟环境 `.venv`。先在其中安装最小构建栈；完整的计量和报告依赖由 `requirements.txt` 管理。不得向系统 Python 安装任何项目包。
 
 ```bash
 python3 -m venv .venv
@@ -112,7 +112,7 @@ python3 -m venv .venv
 
 `g(price_rt) = beta * renewable_share_rt + demand_controls_rt + region_month_FE + exact_AEST_hour_FE + error_rt`
 
-首选价格结果为 `asinh(RRP)`，以允许区域参考电价为负。结果变量也包括小时内 5 分钟价格离散度和负电价指标。主规格标准误按 AEST ISO 周聚类（314 个聚类）；Task 9 还报告 168 小时 Driscoll–Kraay 协方差及 AEST 周 score-multiplier 审计。
+首选价格结果为 `asinh(RRP)`，以允许区域参考电价为负。结果变量也包括小时内 5 分钟价格离散度和负电价指标。主规格标准误按 AEST ISO 周聚类（314 个聚类）；稳健性分析还报告 168 小时 Driscoll–Kraay 协方差及 AEST 周 score-multiplier 审计。
 
 ## 可复现性
 

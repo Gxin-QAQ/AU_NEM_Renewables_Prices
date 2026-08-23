@@ -1,10 +1,10 @@
-# Task 7 — frozen econometric specification
+# Frozen econometric specification
 
 ## Status and claim boundary
 
-Specification version `1.0-task7-frozen` is locked in `config/econometric_spec.yml` before core estimation. The estimand is a conditional, short-run within-region association. Realised renewable output, demand and price are jointly determined in dispatch, so fixed effects and lags do not justify causal language.
+Specification version `1.0-frozen` is locked in `config/econometric_spec.yml` before core estimation. The estimand is a conditional, short-run within-region association. Realised renewable output, demand and price are jointly determined in dispatch, so fixed effects and lags do not justify causal language.
 
-Task 8 may implement the models below but may not change the headline exposure, lag windows, fixed effects, sample, covariance estimator or outcome hierarchy after seeing significance. Any necessary change requires a version bump and a written reason.
+The estimation workflow may implement the models below but may not change the headline exposure, lag windows, fixed effects, sample, covariance estimator or outcome hierarchy after seeing significance. Any necessary change requires a version bump and a written reason.
 
 ## Analysis sample
 
@@ -100,7 +100,7 @@ Heterogeneity families are region, peak/off-peak, Southern Hemisphere season and
 - alternate negative-price thresholds;
 - headline, raw, capped, broad and numerator-only renewable exposures.
 
-No weather-IV claim is authorised in Task 8. Region-specific weather data and the exclusion restriction are evaluated in Task 9. Until that gate passes, all reported coefficients remain associations.
+No weather-IV claim is authorised. Region-specific weather data and the exclusion restriction are evaluated in the identification audit. Until that criterion is met, all reported coefficients remain associations.
 
 ## Machine audit
 

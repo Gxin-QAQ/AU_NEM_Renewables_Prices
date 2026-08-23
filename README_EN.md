@@ -59,7 +59,7 @@ notebooks/    Exploratory and final analysis notebooks
 outputs/      Generated figures and tracked compact result tables
 provenance/   Tracked source-URL, vintage and SHA-256 manifest copies
 report/       Final English report, Markdown source and reproducible DOCX builder input
-site/         Static Plotly dashboard, compact public payload and local-preview instructions
+site/         Static interactive dashboard, compact public payload and local-preview instructions
 src/          Reproducible download, panel and estimation modules
 tests/        Data-quality and transformation tests
 ```
@@ -80,7 +80,7 @@ The final report is 10 rendered pages and contains the economic interpretation, 
 
 ## Environment
 
-Use the project-local virtual environment for all commands. Task 4 installs the minimal build stack (`pandas`, `pyarrow`, `PyYAML`, `pytest`) in `.venv`; later econometric tasks can extend it from `requirements.txt`.
+Use the project-local virtual environment for all commands. Create `.venv` with the minimal build stack (`pandas`, `pyarrow`, `PyYAML`, `pytest`); `requirements.txt` defines the complete econometric and reporting dependencies. Never install project packages into system Python.
 
 ```bash
 python3 -m venv .venv
@@ -111,7 +111,7 @@ For region `r` and hour `t`:
 
 `g(price_rt) = beta * renewable_share_rt + demand_controls_rt + region_month_FE + exact_AEST_hour_FE + error_rt`
 
-The preferred price outcome uses `asinh(RRP)` because regional reference prices can be negative. Outcomes also include within-hour five-minute price dispersion and negative-price indicators. Headline standard errors are clustered by AEST ISO week (314 clusters); Task 9 additionally reports a 168-hour Driscoll–Kraay covariance and an AEST-week score-multiplier audit.
+The preferred price outcome uses `asinh(RRP)` because regional reference prices can be negative. Outcomes also include within-hour five-minute price dispersion and negative-price indicators. Headline standard errors are clustered by AEST ISO week (314 clusters); robustness analysis additionally reports a 168-hour Driscoll–Kraay covariance and an AEST-week score-multiplier audit.
 
 ## Reproducibility
 

@@ -60,7 +60,7 @@
 
 ### `processed/nem_region_hour_model.parquet`
 
-Task 7 从最终小时价格面板派生的模型数据框，仅新增 `../config/econometric_spec.yml` 中冻结的转换、固定效应标识、周聚类、5MS 分割和滞后块。四区域主样本有 210,399 条可用观测；估计必须显式应用 `headline_sample` 或 `dynamic_sample` 标记。
+最终小时价格面板派生的模型数据框，仅新增 `../config/econometric_spec.yml` 中冻结的转换、固定效应标识、周聚类、5MS 分割和滞后块。四区域主样本有 210,399 条可用观测；估计必须显式应用 `headline_sample` 或 `dynamic_sample` 标记。
 
 ### `interim/history_generation_demand_5min/YYYY-MM.parquet`
 
@@ -68,7 +68,7 @@ Task 7 从最终小时价格面板派生的模型数据框，仅新增 `../confi
 
 ### 试验性处理面板
 
-`processed/nem_region_5min_pilot.parquet` 与 `processed/nem_region_hour_pilot.parquet` 是 Task 4 对两个 2025 年七日窗口的验证输出，不能替代 FY2020–FY2025 生产面板。先重建 DUID 对照表后，可用 `python -m src.panel_builder` 重建。
+`processed/nem_region_5min_pilot.parquet` 与 `processed/nem_region_hour_pilot.parquet` 是两个 2025 年七日窗口的验证输出，不能替代 FY2020–FY2025 生产面板。先重建 DUID 对照表后，可用 `python -m src.panel_builder` 重建。
 
 ### `external/aemo_reference/DUDETAILSUMMARY_202510.zip`
 
@@ -122,7 +122,7 @@ Task 7 从最终小时价格面板派生的模型数据框，仅新增 `../confi
 - 推断：314 个 AEST ISO 周聚类。
 - 冻结 p99.9 占比上限：2.78918；受影响的主样本观测为 211 条。
 
-面向报告的输出由 `processed/nem_region_hour_model.parquet` 和冻结的 Task 8–9 结果表生成。未经重新构建或核对这些工件，不得手工改动报告数字。
+面向报告的输出由 `processed/nem_region_hour_model.parquet` 和冻结的估计与稳健性结果表生成。未经重新构建或核对这些工件，不得手工改动报告数字。
 
 ## 复现
 
@@ -138,16 +138,16 @@ Task 7 从最终小时价格面板派生的模型数据框，仅新增 `../confi
 .venv/bin/python -m src.rebuild_aemo_manifest
 ```
 
-2025 试验归档已获取，且已建立包含 SHA-256 校验和的 47 条记录 manifest。详见 [`../docs/task1_pilot_access.md`](../docs/task1_pilot_access.md)，其中记录了归档结构和解析要求。
+2025 验证归档已获取，且已建立包含 SHA-256 校验和的 47 条记录 manifest。详见 [`../docs/task1_pilot_access.md`](../docs/task1_pilot_access.md)，其中记录了归档结构和解析要求。
 
-按生效日期的 DUID/燃料构建也已为试验完成：它将所有观测到的 SCADA 电量解析到燃料/负荷类别，5 个零出力 `DG_*` 合成代码仍被显式标记为未知。映射规则、电池处理与覆盖审计见 [`../docs/task3_duid_fuel_mapping.md`](../docs/task3_duid_fuel_mapping.md)。
+按生效日期的 DUID/燃料构建也已为验证样本完成：它将所有观测到的 SCADA 电量解析到燃料/负荷类别，5 个零出力 `DG_*` 合成代码仍被显式标记为未知。映射规则、电池处理与覆盖审计见 [`../docs/task3_duid_fuel_mapping.md`](../docs/task3_duid_fuel_mapping.md)。
 
 原始 FY2020–FY2025 来源历史完整：区域需求、价格和 SCADA 月度归档各 72 个，共 216 个文件。`DISPATCHREGIONSUM` 提供需求，独立的 `DISPATCHPRICE` 表提供 RRP，二者仅按有文档记录的固定 AEST 区域—时间键连接。完成的面板与描述性数据审计见 [`../docs/task6_descriptive_status.md`](../docs/task6_descriptive_status.md)。
 
 目前 AEMO 公共日归档保留期限有限，因此 FY2020–FY2025 历史提取使用记录在 `raw/history_manifest.csv` 中、经验证的月度 MMSDM 归档流水线。
 
-`raw/`、`external/`、`interim/` 和 `processed/` 当前均未存储天气提取数据。Task 9 否决了天气 IV 的因果解释：天气同时影响运营需求和屋顶光伏，公共站点覆盖不均，也没有按电厂位置/容量加权的工具变量或排除限制审计。天气可在以后作为有文档记录的控制变量或独立版本化扩展加入；它不是当前估计量的一部分。
+`raw/`、`external/`、`interim/` 和 `processed/` 当前均未存储天气提取数据。识别审计不支持天气 IV 的因果解释：天气同时影响运营需求和屋顶光伏，公共站点覆盖不均，也没有按电厂位置/容量加权的工具变量或排除限制审计。天气可在以后作为有文档记录的控制变量或独立版本化扩展加入；它不是当前估计量的一部分。
 
-Task 10 不新增或改动分析数据。它读取冻结的 Task 8–9 表，生成两张报告系数图，并渲染最终英文报告；原始、中间和处理后数据契约均保持不变。
+报告生成流程不新增或改动分析数据。它读取冻结的估计与稳健性结果表，生成两张报告系数图，并渲染最终英文报告；原始、中间和处理后数据契约均保持不变。
 
-Task 11 从零重建项目 `.venv`，核验全部 265 个本地不可变来源文件的大小和 SHA-256，并重新生成最终面板、Task 8–9 结果、图形、Notebook 与报告。三个核心 Parquet 与审计前逐字节一致；完整审计见 [`../docs/task11_reproducibility_audit.md`](../docs/task11_reproducibility_audit.md)。
+复现审计从零重建项目 `.venv`，核验全部 265 个本地不可变来源文件的大小和 SHA-256，并重新生成最终面板、估计结果、图形、Notebook 与报告。三个核心 Parquet 与审计前逐字节一致；完整审计见 [`../docs/task11_reproducibility_audit.md`](../docs/task11_reproducibility_audit.md)。

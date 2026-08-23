@@ -1,4 +1,4 @@
-# Task 4 — Pilot region-time panel and hourly aggregation
+# Pilot region-time panel and hourly aggregation
 
 ## Outcome
 
@@ -61,4 +61,4 @@ The builder fails if a regional source key is duplicate, a DUID mapping is missi
 
 ## Scope boundary
 
-This is a pilot-panel build, not the FY2020–FY2025 production extraction. It validates the unit-to-region aggregation and time logic before Task 5 selects a size-aware historical acquisition strategy.
+This is a pilot-panel build, not the FY2020–FY2025 production extraction. It validates the unit-to-region aggregation and time logic before the full historical acquisition.

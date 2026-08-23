@@ -1,4 +1,4 @@
-# Task 1 — AEMO pilot access validation
+# AEMO pilot access validation
 
 ## Purpose
 
@@ -21,7 +21,7 @@ The daily archive has limited retention, so these windows are used only to test 
 
 ## Pilot result
 
-Task 1 acquired and verified the two intended seven-day windows (14 market days × two archive families), plus a small number of ordinary-period dispatch files downloaded during access probing. The normalized manifest contains 47 unique source archives and the raw pilot occupies approximately 145 MB.
+The validation build acquired and verified two intended seven-day windows (14 market days × two archive families), plus a small number of ordinary-period dispatch files downloaded during access probing. The normalized manifest contains 47 unique source archives and the raw pilot occupies approximately 145 MB.
 
 For each of the 14 intended days, the dispatch archive has 288 unique nested interval files. The SCADA archive also has 288 unique nested interval files on every intended day, including 5 October. The 8 September SCADA outer ZIP contains 289 entries but only 288 unique inner filenames: the first `202509080845` entry is a zero-byte placeholder and the second is the valid interval ZIP. This is an archive duplication, not an additional interval.
 

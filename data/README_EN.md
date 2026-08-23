@@ -60,7 +60,7 @@ Interim hourly panel containing demand and fuel-resolved SCADA generation, but n
 
 ### `processed/nem_region_hour_model.parquet`
 
-Task 7 model frame derived from the final hourly price panel. It adds only transformations, fixed-effect identifiers, week clusters, the 5MS split and frozen lag blocks declared in `../config/econometric_spec.yml`. Its four-region headline sample contains 210,399 usable observations; estimates must continue to apply the `headline_sample` or `dynamic_sample` flags explicitly.
+Model frame derived from the final hourly price panel. It adds only transformations, fixed-effect identifiers, week clusters, the 5MS split and frozen lag blocks declared in `../config/econometric_spec.yml`. Its four-region headline sample contains 210,399 usable observations; estimates must continue to apply the `headline_sample` or `dynamic_sample` flags explicitly.
 
 ### `interim/history_generation_demand_5min/YYYY-MM.parquet`
 
@@ -68,7 +68,7 @@ Restartable five-minute month partitions built from the verified regional-demand
 
 ### Pilot processed panels
 
-`processed/nem_region_5min_pilot.parquet` and `processed/nem_region_hour_pilot.parquet` are the Task 4 validation outputs for the two 2025 seven-day windows. They are not substitutes for the planned FY2020–FY2025 production panel. Rebuild them with `python -m src.panel_builder` after first rebuilding the DUID crosswalk.
+`processed/nem_region_5min_pilot.parquet` and `processed/nem_region_hour_pilot.parquet` are validation outputs for two 2025 seven-day windows. They are not substitutes for the FY2020–FY2025 production panel. Rebuild them with `python -m src.panel_builder` after first rebuilding the DUID crosswalk.
 
 ### `external/aemo_reference/DUDETAILSUMMARY_202510.zip`
 
@@ -122,7 +122,7 @@ A dataset may move to `processed/` only after it passes:
 - Inference: 314 AEST ISO-week clusters.
 - Frozen p99.9 share cap: 2.78918; 211 headline observations are affected.
 
-The report-facing outputs are generated from `processed/nem_region_hour_model.parquet` and the frozen Task 8–9 result tables. No report number should be manually edited without rebuilding or reconciling those artifacts.
+The report-facing outputs are generated from `processed/nem_region_hour_model.parquet` and the frozen estimation and robustness result tables. No report number should be manually edited without rebuilding or reconciling those artifacts.
 
 ## Reproduction
 
@@ -138,16 +138,16 @@ The first acquisition task used two seven-day windows—one ordinary period and 
 .venv/bin/python -m src.rebuild_aemo_manifest
 ```
 
-The 2025 pilot archives have been acquired and a 47-record manifest with recorded SHA-256 checksums has been built. See `../docs/task1_pilot_access.md` for the observed archive structure and parser requirements.
+The 2025 validation archives have been acquired and a 47-record manifest with recorded SHA-256 checksums has been built. See `../docs/task1_pilot_access.md` for the observed archive structure and parser requirements.
 
-The effective-dated DUID/fuel build is also complete for the pilot. It resolves all observed SCADA energy to a fuel/load category; five zero-output `DG_*` synthetic codes remain explicitly unknown. See `../docs/task3_duid_fuel_mapping.md` for mapping rules, battery treatment and the coverage audit.
+The effective-dated DUID/fuel build is also complete for the validation sample. It resolves all observed SCADA energy to a fuel/load category; five zero-output `DG_*` synthetic codes remain explicitly unknown. See `../docs/task3_duid_fuel_mapping.md` for mapping rules, battery treatment and the coverage audit.
 
 The raw FY2020–FY2025 source history is complete: 72 each of regional-demand, price and SCADA monthly archives (216 files in total). `DISPATCHREGIONSUM` supplies demand and the separate `DISPATCHPRICE` table supplies RRP; the two are joined only by the documented fixed-AEST region-time key. See `../docs/task6_descriptive_status.md` for the completed panel and descriptive-data audit.
 
 The current public daily AEMO archive has limited retention. Historical FY2020–FY2025 extraction therefore uses the verified monthly MMSDM archive pipeline recorded in `raw/history_manifest.csv`.
 
-No weather extract is currently stored under `raw/`, `external/`, `interim/` or `processed/`. Task 9 rejected a causal weather-IV interpretation because weather also affects operational demand and rooftop PV, public station coverage is uneven, and no plant-location/capacity-weighted instrument or exclusion audit exists. Weather may be added later as documented controls or as a separately versioned research extension; it is not part of the current estimand.
+No weather extract is currently stored under `raw/`, `external/`, `interim/` or `processed/`. The identification audit rejects a causal weather-IV interpretation because weather also affects operational demand and rooftop PV, public station coverage is uneven, and no plant-location/capacity-weighted instrument or exclusion audit exists. Weather may be added later as documented controls or as a separately versioned research extension; it is not part of the current estimand.
 
-Task 10 does not add or alter analytical data. It reads the frozen Task 8–9 tables, produces two report coefficient figures, and renders the final English report. The raw, interim and processed data contracts therefore remain unchanged.
+The reporting workflow does not add or alter analytical data. It reads the frozen estimation and robustness tables, produces two report coefficient figures, and renders the final English report. The raw, interim and processed data contracts therefore remain unchanged.
 
-Task 11 rebuilt the project `.venv` from scratch, verified the byte size and SHA-256 of all 265 local immutable source files, and regenerated the final panels, Task 8–9 results, figures, notebooks and report. The three core Parquet files are byte-identical to their pre-audit versions; see the full [`Task 11 audit`](../docs/task11_reproducibility_audit.md).
+The reproducibility audit rebuilt the project `.venv` from scratch, verified the byte size and SHA-256 of all 265 local immutable source files, and regenerated the final panels, estimates, figures, notebooks and report. The three core Parquet files are byte-identical to their pre-audit versions; see the full [audit](../docs/task11_reproducibility_audit.md).

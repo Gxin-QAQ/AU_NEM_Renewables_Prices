@@ -1,4 +1,4 @@
-# Task 6 — descriptive panel, tables and figures
+# Descriptive panel, tables and figures
 
 ## Completed output
 
@@ -17,7 +17,7 @@ The full price acquisition contains 72 ZIP files, 140,230,299 bytes (0.131 GiB).
 - No final panel price values are missing.
 - The SCADA effective-date join has no unresolved positive energy. In 2024-08, 1,278 zero-output records are unresolved (0.031% of records); the monthly audit retains this fact explicitly.
 - 427 five-minute regional intervals have non-positive operational demand. Their demand-based shares are missing rather than made negative or infinite.
-- `UNKNOWN` fuel category means a DUID was region-mapped but could not yet be given a confident fuel label. It remains in `unmapped_scada_mw` and is excluded from both renewable definitions. Its later-sample growth is a Task 9 crosswalk-robustness item.
+- `UNKNOWN` fuel category means a DUID was region-mapped but could not yet be given a confident fuel label. It remains in `unmapped_scada_mw` and is excluded from both renewable definitions. Its later-sample growth is examined in the crosswalk-robustness audit.
 - Shares are not capped at one. A region can export while its numerator is regional generation and the denominator is regional operational demand; shares above 100% are therefore possible, notably in SA and TAS.
 
 ## Descriptive artefacts
@@ -34,7 +34,7 @@ The generated (Git-ignored) output files are:
 | `outputs/figures/fig3_negative_price_incidence.png` | Monthly negative-price incidence |
 | `outputs/figures/fig4_volatility_by_renewable_share_bin.png` | Conditional volatility association |
 
-These are descriptive associations, not causal effects. The figures retain the full price distribution and raw, uncapped penetration ratio. Fixed effects, lags, covariates, inference and robustness decisions begin in Task 7.
+These are descriptive associations, not causal effects. The figures retain the full price distribution and raw, uncapped penetration ratio. Fixed effects, lags, covariates, inference and robustness choices are defined in the econometric specification.
 
 ## Reproduction
 

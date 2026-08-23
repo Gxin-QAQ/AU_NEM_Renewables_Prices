@@ -1,10 +1,10 @@
-# Task 11 — adversarial reproducibility audit
+# Reproducibility audit
 
 ## Decision
 
-**Pass the Task 11 completion gate.** The frozen data contracts, main estimates, robustness results, figures, executed notebooks and report are internally consistent and reproducible in a newly created repository-local `.venv`. The study remains a conditional-association analysis and does not acquire a causal interpretation through reproducibility alone.
+**Reproducibility review passed.** The frozen data contracts, main estimates, robustness results, figures, executed notebooks and report are internally consistent and reproducible in a newly created repository-local `.venv`. The study remains a conditional-association analysis and does not acquire a causal interpretation through reproducibility alone.
 
-The audit used GPT-5.6 Sol with xhigh reasoning, as pre-specified in `docs/work_plan.md`. No package was installed into system Python. The system interpreter was used only to create an isolated `.venv`; every project dependency and research command ran inside that environment.
+No package was installed into system Python. The system interpreter was used only to create an isolated `.venv`; every project dependency and research command ran inside that environment.
 
 ## Clean-environment result
 
@@ -17,9 +17,9 @@ The fresh environment passed:
 - compilation of every `src/` module;
 - execution of all three notebooks with 13 of 13 code cells executed and zero error outputs;
 - the 42-check automated reproducibility audit, including full source SHA-256 verification; and
-- a fresh rerun of the 22-model Task 8 fixed-effect build, whose core coefficient, contrast and headline CSV files were byte-identical to the pre-audit artifacts.
+- a fresh rerun of the 22-model fixed-effect build, whose core coefficient, contrast and headline CSV files were byte-identical to the pre-audit artifacts.
 
-The original environment audit found that `requests`, `plotly` and `jupyterlab` were declared but not installed. Recreating `.venv` from `requirements.txt` corrected that mismatch. `nbformat` is now also declared directly because the Task 11 audit module imports it.
+The environment audit found that several declared support packages were absent. Recreating `.venv` from `requirements.txt` corrected that mismatch. `nbformat` is now also declared directly because the audit module imports it.
 
 ## Source and data integrity
 
@@ -46,9 +46,9 @@ The frozen analysis snapshot was reproduced exactly:
 
 ## Estimate and inference reproducibility
 
-The complete Task 8 chain was rerun: core fixed effects, distributed lags, heterogeneity, Logit/Probit and the compact headline summary. All five Task 8 result files were byte-identical to the audit baseline.
+The complete estimation chain was rerun: core fixed effects, distributed lags, heterogeneity, Logit/Probit and the compact headline summary. All five core result files were byte-identical to the audit baseline.
 
-The complete Task 9 chain was also rerun: 38 robustness models, 42 heterogeneity comparisons, Holm corrections, the fixed-seed 399-replication AEST-week score-multiplier audit, leverage diagnostics, UNKNOWN-fuel diagnostics and compact result summaries. All seven audited Task 9 result files were byte-identical to the baseline.
+The complete robustness chain was also rerun: 38 robustness models, 42 heterogeneity comparisons, Holm corrections, the fixed-seed 399-replication AEST-week score-multiplier audit, leverage diagnostics, UNKNOWN-fuel diagnostics and compact result summaries. All seven audited robustness result files were byte-identical to the baseline.
 
 The reproduced headline estimates per 10 percentage-point increase in the capped wind-plus-utility-solar share are:
 
@@ -81,7 +81,7 @@ All three notebooks were executed again with the fresh `.venv` kernel and their 
 
 - A fresh clone does not contain the 1.98 GB compressed AEMO history or derived Parquet panels. Full reconstruction requires network access, storage and materially more runtime than the compact result audit.
 - The OpenElectricity facility export is dynamic. The local capture is frozen and hashed, but reproducing the exact fuel crosswalk requires retaining that vintage rather than silently substituting the current endpoint response.
-- `requirements.txt` constrains direct dependencies but is not a platform-independent transitive lockfile. Task 11 verifies a fresh macOS arm64 / Python 3.13 installation; it does not promise byte-identical dependency resolution indefinitely on every platform.
+- `requirements.txt` constrains direct dependencies but is not a platform-independent transitive lockfile. This audit verifies a fresh macOS arm64 / Python 3.13 installation; it does not promise byte-identical dependency resolution indefinitely on every platform.
 - Full-sample unpenalised quantile regressions remain transparently unestimated under the bounded computation design.
 - The data and code are reproducible, but the observational design remains exposed to region-specific simultaneous shocks. Results are conditional associations, not causal effects.
 - No open-source licence is currently granted. The author should choose a licence separately before inviting code reuse.

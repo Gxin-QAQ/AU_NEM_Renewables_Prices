@@ -1,4 +1,4 @@
-# Task 3 — Effective-dated DUID and fuel mapping
+# Effective-dated DUID and fuel mapping
 
 ## Outcome
 
@@ -76,7 +76,7 @@ Energy-weighted coverage uses `SCADAVALUE × 5/60`. Positive and absolute-energy
 
 AEMO's October 2025 Generation Information workbook is the preferred fuel-label cross-check, but its website download was behind an automated access challenge during this task. No bypass was attempted. The captured OpenElectricity export is therefore a provisional secondary fuel source, with its SHA-256 checksum frozen locally.
 
-Before the full-sample regression is frozen, the crosswalk must be compared against the official AEMO workbook (or another official technology table) and all material discrepancies reviewed. This limitation does not block Task 4's pilot panel because the pilot has 100% energy-weighted coverage and no region conflicts.
+Before the full-sample regression is frozen, the crosswalk must be compared against the official AEMO workbook (or another official technology table) and all material discrepancies reviewed. This limitation does not block the pilot-panel validation because the pilot has 100% energy-weighted coverage and no region conflicts.
 
 ## References
 

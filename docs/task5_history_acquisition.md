@@ -1,4 +1,4 @@
-# Task 5 — FY2020–FY2025 historical acquisition
+# FY2020–FY2025 historical acquisition
 
 ## Outcome
 

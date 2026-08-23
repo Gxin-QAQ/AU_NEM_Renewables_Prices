@@ -1,10 +1,10 @@
-# Task 8 — core estimation results
+# Core estimation results
 
 ## Status and interpretation boundary
 
-This task implements the Task 7 frozen specification using the project `.venv` only. The headline evidence is conditional association, not a causal effect: realised renewable output, demand and wholesale prices are jointly determined in dispatch. Exact-hour fixed effects also mean the result is identified by relative variation across regions, not by an NEM-wide renewable change.
+This analysis implements the frozen specification using the project `.venv` only. The headline evidence is conditional association, not a causal effect: realised renewable output, demand and wholesale prices are jointly determined in dispatch. Exact-hour fixed effects also mean the result is identified by relative variation across regions, not by an NEM-wide renewable change.
 
-All headline effects below correspond to a **10 percentage-point increase** in the pooled-p99.9-winsorised wind-plus-utility-solar share. The cap is pre-specified in Task 7 and affects 211 of 210,399 observations (0.10%). Region-month and exact AEST-hour fixed effects are absorbed; standard errors are clustered by AEST ISO week (314 clusters).
+All headline effects below correspond to a **10 percentage-point increase** in the pooled-p99.9-winsorised wind-plus-utility-solar share. The cap is pre-specified in the frozen specification and affects 211 of 210,399 observations (0.10%). Region-month and exact AEST-hour fixed effects are absorbed; standard errors are clustered by AEST ISO week (314 clusters).
 
 ## Headline fixed-effect results
 
@@ -26,15 +26,15 @@ The distributed-lag price model uses 209,928 observations with complete exposure
 
 The regional estimates show why a single merit-order narrative is insufficient. For transformed price, the four region-specific associations are +0.376 (NSW1), -0.481 (VIC1), -0.190 (QLD1), and -0.283 (SA1). For negative-price probability, they are -1.77, +6.79, +4.62 and +3.43 percentage points respectively. These differences can reflect interconnection, constraints, local technology mix and market design; they do not establish regional causal mechanisms.
 
-Peak/off-peak, season and pre/post-5MS contrasts are included in `outputs/tables/task8_linear_contrasts.csv`. They are pre-specified descriptive heterogeneity results; Holm adjustment within each family and the remaining robustness checks are reserved for Task 9.
+Peak/off-peak, season and pre/post-5MS contrasts are included in `outputs/tables/task8_linear_contrasts.csv`. They are pre-specified descriptive heterogeneity results; Holm adjustment within each family and the remaining robustness checks are reported in the robustness audit.
 
 ## Nonlinear negative-price check
 
-Secondary Binomial GLMs with region-month plus local-hour-by-weekday effects converged for all 210,399 headline observations. Their point average marginal effects are +4.02 percentage points (Logit) and +3.91 percentage points (Probit), close to the exact-hour LPM direction and magnitude. Their inference is intentionally not reported as final because the frozen plan reserves AEST-week block-bootstrap inference for Task 9.
+Secondary Binomial GLMs with region-month plus local-hour-by-weekday effects converged for all 210,399 headline observations. Their point average marginal effects are +4.02 percentage points (Logit) and +3.91 percentage points (Probit), close to the exact-hour LPM direction and magnitude. Their inference is intentionally not reported as final because the frozen plan reserves AEST-week block-bootstrap inference for the robustness audit.
 
 ## Quantile-model status
 
-The secondary q = 0.50, 0.90 and 0.95 conditional quantile models require the frozen coarse fixed-effect design and AEST-week block bootstrap. Two full-sample, unpenalised attempts were made: the dense estimator did not complete in the bounded Task 8 window, and sparse HiGHS interior point reached its 60-second time limit. No sample, penalty, or fixed-effect simplification was substituted. The precise status is recorded in `data/interim/task8_nonlinear_manifest.json`; the unchanged quantile formula and bootstrap requirement carry forward to Task 9.
+The secondary q = 0.50, 0.90 and 0.95 conditional quantile models require the frozen coarse fixed-effect design and AEST-week block bootstrap. Two full-sample, unpenalised attempts were made: the dense estimator did not complete within the bounded estimation window, and sparse HiGHS interior point reached its 60-second time limit. No sample, penalty, or fixed-effect simplification was substituted. The precise status is recorded in `data/interim/task8_nonlinear_manifest.json`; the unchanged quantile formula and bootstrap requirement are retained in the robustness audit.
 
 ## Reproduction
 

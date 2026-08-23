@@ -31,9 +31,9 @@
 | `negative_price_below_minus_50_any_5min` | indicator | `1` if any five-minute RRP in an hour is below −50 AUD/MWh | Derived |
 | `negative_price_below_minus_100_any_5min` | indicator | `1` if any five-minute RRP in an hour is below −100 AUD/MWh | Derived |
 | `renewable_share_ws_10pp` | 10 percentage-point units | `10 * renewable_share_ws`; raw uncapped exposure used for transparency checks | Derived |
-| `renewable_share_ws_10pp_winsor_p999` | 10 percentage-point units | Headline exposure, upper-winsorised at the pooled four-region sample p99.9 to limit near-zero-demand leverage | Derived in Task 7 |
-| `renewable_output_ws_100mw` | 100 MW units | `(wind_mw + solar_utility_mw) / 100`; alternative exposure that avoids a demand denominator | Derived in Task 7 |
-| `price_winsor_001_999` | AUD/MWh | RRP winsorised at pooled headline-sample p0.1 and p99.9; robustness outcome only | Derived in Task 7 |
+| `renewable_share_ws_10pp_winsor_p999` | 10 percentage-point units | Headline exposure, upper-winsorised at the pooled four-region sample p99.9 to limit near-zero-demand leverage | Derived in the frozen specification |
+| `renewable_output_ws_100mw` | 100 MW units | `(wind_mw + solar_utility_mw) / 100`; alternative exposure that avoids a demand denominator | Derived in the frozen specification |
+| `price_winsor_001_999` | AUD/MWh | RRP winsorised at pooled headline-sample p0.1 and p99.9; robustness outcome only | Derived in the frozen specification |
 
 ## Crosswalk fields
 

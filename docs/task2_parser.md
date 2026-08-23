@@ -1,4 +1,4 @@
-# Task 2 — AEMO archive parser
+# AEMO archive parser
 
 ## Deliverables
 
@@ -30,4 +30,4 @@ PYTHONPATH=. python -m unittest tests.test_aemo_dispatch -v
 
 ## Deferred work
 
-Fuel aggregation remains outside this parser module. The required effective-dated crosswalk and storage rules were completed in Task 3; see `task3_duid_fuel_mapping.md`.
+Fuel aggregation remains outside this parser module. The effective-dated crosswalk and storage rules are documented in `task3_duid_fuel_mapping.md`.

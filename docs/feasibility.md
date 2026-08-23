@@ -60,4 +60,4 @@ Construct region-weighted weather availability measures and test an IV/control-f
 
 ## Deliverables after the pilot passes
 
-The requested README, source catalogue, variable dictionary, automated pipeline, analysis notebook, tables, figures and 8–10 page English report are all practical. A Streamlit/Plotly dashboard is lower priority and should be added only after the dataset and findings are final.
+The repository includes a README, source catalogue, variable dictionary, automated pipeline, analysis notebook, tables, figures, 8–10 page English report and a static dashboard. The dashboard is intentionally lightweight and is built from compact final outputs rather than raw market data.

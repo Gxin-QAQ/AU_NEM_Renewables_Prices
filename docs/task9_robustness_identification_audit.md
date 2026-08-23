@@ -1,4 +1,4 @@
-# Task 9 — robustness and identification audit
+# Robustness and identification audit
 
 ## Decision
 
@@ -27,7 +27,7 @@ The broad renewable ratio including hydro is also insignificant in its raw uncap
 
 ## Negative-price thresholds
 
-Task 9 detected and corrected an aggregation error: the −50 and −100 AUD/MWh sensitivities had initially been defined using the hourly mean RRP. They are now reconstructed from the source panel as indicators that **any of the twelve five-minute RRPs** in an hour crosses the threshold.
+The audit detected and corrected an aggregation error: the −50 and −100 AUD/MWh sensitivities had initially been defined using the hourly mean RRP. They are now reconstructed from the source panel as indicators that **any of the twelve five-minute RRPs** in an hour crosses the threshold.
 
 - Baseline any-negative incidence: 18.01%; association +3.58 percentage points.
 - Any five-minute RRP below −50 incidence: 5.38%; association +0.45 percentage points (SE 0.13 pp, p < 0.001).
@@ -53,7 +53,7 @@ This is a computationally bounded score/influence-function multiplier approximat
 
 ## Heterogeneity audit
 
-Task 8 reported group-specific slopes. Task 9 additionally tests whether slopes differ from each other and applies Holm correction within each pre-specified family and outcome.
+The core estimates report group-specific slopes. This audit additionally tests whether slopes differ from each other and applies Holm correction within each pre-specified family and outcome.
 
 - Regional price slopes differ strongly in nearly every pair. Even QLD1 versus SA1 remains marginally different after Holm adjustment (adjusted p = 0.044).
 - Peak versus off-peak slopes differ for transformed price (adjusted p = 0.0078) and negative-price probability (adjusted p = 0.0013), but not for volatility (p = 0.648).
