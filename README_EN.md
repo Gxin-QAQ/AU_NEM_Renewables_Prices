@@ -125,4 +125,4 @@ The repository deliberately does not commit large market extracts. Each download
 
 ## Licence and data use
 
-No open-source licence is currently included. Unless a `LICENSE` file is added later, no reuse rights are granted for the repository code. Raw source data remain subject to the respective AEMO and secondary-source terms.
+Original code and documentation in this repository are available under the [MIT License](LICENSE). This licence does not grant rights in AEMO or other third-party source data; users remain responsible for complying with the applicable source terms.
