@@ -1,4 +1,10 @@
-"""Run the time-ordered negative-price event replay on the hourly NEM snapshot."""
+"""Information-set-audited Phase 2 negative-price forecasting replay.
+
+The module deliberately uses the retained hourly snapshot as a conditional
+historical replay.  It never reads the frozen model frame, and every model is
+refit at a month boundary using labels that satisfy the declared two-hour
+availability embargo.
+"""
 
 from __future__ import annotations
 
