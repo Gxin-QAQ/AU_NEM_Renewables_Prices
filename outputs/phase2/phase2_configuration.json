@@ -1,0 +1,114 @@
+{
+  "acceptance_gate": {
+    "maximum_pooled_calibration_abs_bias_pp": 2.0,
+    "maximum_regional_brier_degradation_vs_control": 0.02,
+    "minimum_confirmation_bootstrap_q025": 0.0,
+    "minimum_relative_brier_improvement": 0.02
+  },
+  "availability": {
+    "embargo_hours": 2,
+    "rule": "source_interval_start + 2h <= target_or_fit_origin"
+  },
+  "bootstrap": {
+    "block_days": 7,
+    "replicates": 1000,
+    "seed": 20260910
+  },
+  "evaluation": {
+    "confirmation": {
+      "end": "2025-07-01 00:00",
+      "expected_nobs": 35040,
+      "start": "2024-07-01 00:00"
+    },
+    "development": {
+      "end": "2024-07-01 00:00",
+      "expected_nobs": 35136,
+      "start": "2023-07-01 00:00"
+    }
+  },
+  "initial_history_start": "2019-07-08 00:00",
+  "lags_hours": [
+    2,
+    24,
+    168
+  ],
+  "logistic": {
+    "C": 1.0,
+    "class_weight": null,
+    "max_iter": 1000,
+    "random_state": 0,
+    "solver": "lbfgs",
+    "tol": 1e-06
+  },
+  "models": [
+    "seasonal_naive",
+    "seasonal_frequency",
+    "statistical_control",
+    "renewable_candidate"
+  ],
+  "preprocessing": {
+    "categorical_effects": {
+      "drop_first": true,
+      "local_hour": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "local_weekday": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "region": [
+        "NSW1",
+        "QLD1",
+        "SA1",
+        "VIC1"
+      ]
+    },
+    "numeric_standardisation": "training_window_mean_std_ddof0",
+    "price_scale_aud_mwh": 1.0,
+    "price_transform": "asinh"
+  },
+  "protocol_id": "phase2-negative-event-replay-v2",
+  "refit": "monthly_expanding",
+  "regions": [
+    "NSW1",
+    "QLD1",
+    "SA1",
+    "VIC1"
+  ],
+  "risk_translation": {
+    "event_definition": "any negative five-minute RRP in target hour",
+    "unit": "expected region-hour negative-price events"
+  },
+  "runtime": {
+    "fit_budget_seconds": 1800
+  },
+  "target": "negative_price_any"
+}

@@ -26,3 +26,7 @@ __pycache__/
 !provenance/
 !provenance/*.csv
 !provenance/*.md
+
+# Compact Phase 2 summaries; row-level predictions and raw data stay local.
+!outputs/phase2/*_metrics.csv
+!outputs/phase2/*_calibration.csv

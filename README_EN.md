@@ -6,6 +6,15 @@
 
 ## Objective
 
+September 2026 update: [open the live dashboard](https://gxin-qaq.github.io/AU_NEM_Renewables_Prices/#risk)
+for the new negative-price probability replay alongside the frozen economic study.
+The renewable candidate reduced confirmation Brier error by 6.38% versus the
+lagged-price/event/demand control over 35,040 region-hours. This is conditional
+on an assumed two-hour data-availability rule. See the
+[extension report](report/phase2_forecast_extension.md),
+[public evidence and reproduction notes](docs/phase2_publication.md), and
+[aggregate results](outputs/phase2/).
+
 This project studies whether renewable generation penetration is associated with lower wholesale electricity prices, price volatility, and negative-price risk across the Australian National Electricity Market (NEM) regions. The principal regions are NSW1, VIC1, QLD1 and SA1; TAS1 is retained for robustness checks.
 
 The analysis is designed as a reproducible region-by-time panel. Its primary study window is 1 July 2019 to 30 June 2025, aggregated from 5-minute dispatch intervals to hourly observations. It spans the 1 October 2021 five-minute-settlement transition, enabling a pre/post-5MS heterogeneity check as well as seasonal and peak/off-peak analysis.

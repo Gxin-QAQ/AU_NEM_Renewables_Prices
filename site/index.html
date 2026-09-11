@@ -8,18 +8,20 @@
     <link rel="stylesheet" href="styles.css" />
     <script defer src="data/dashboard.js"></script>
     <script defer src="app.js"></script>
+    <script defer src="data/phase2.js"></script>
+    <script defer src="phase2.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to findings</a>
     <header class="hero">
       <nav class="nav shell" aria-label="Primary navigation">
         <a class="wordmark" href="#top" aria-label="AU NEM research dashboard home">AU <span>NEM</span></a>
-        <a class="nav-link" href="#explore">Explore evidence</a>
+        <a class="nav-link" href="#risk">Explore risk forecasts ↓</a>
       </nav>
       <div id="top" class="hero-content shell">
-        <p class="eyebrow">APPLIED ENERGY ECONOMICS · AUSTRALIA</p>
+        <p class="eyebrow">ENERGY ECONOMICS · MARKET RISK · AUSTRALIA</p>
         <h1>Renewables, wholesale prices<br />&amp; negative-price risk</h1>
-        <p class="hero-copy">A transparent, interactive view of a frozen FY2020–FY2025 study of Australia's National Electricity Market.</p>
+        <p class="hero-copy">From renewable supply and price associations to a time-ordered negative-price probability replay. Explore the economic evidence and its market-risk extension.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#explore">Explore the evidence</a>
           <a class="button button-secondary" href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices" target="_blank" rel="noreferrer">Open the repository <span aria-hidden="true">↗</span></a>
@@ -120,6 +122,59 @@
             <p>Compact final tables only</p>
           </article>
         </div>
+      </section>
+
+      <section id="risk" class="shell risk-section" aria-labelledby="risk-title">
+        <div class="section-heading">
+          <p class="eyebrow">PHASE 2 · CONDITIONAL HISTORICAL REPLAY</p>
+          <h2 id="risk-title">Does renewable information improve negative-price risk forecasts?</h2>
+          <p>Adding lagged wind and utility-solar generation reduced confirmation-period Brier error by 6.38% against a logistic price / event / demand control. The target is any negative five-minute price in the next target hour.</p>
+        </div>
+        <div class="boundary-callout">
+          <p><strong>Information assumption:</strong> realised hourly data are assumed available two hours after the interval starts. Historical release, revision and fuel-label vintages are not fully audited. These results describe a conditional historical replay.</p>
+        </div>
+        <div class="chart-toolbar risk-controls">
+          <label for="risk-period">Evaluation period</label>
+          <select id="risk-period">
+            <option value="confirmation">Confirmation · Jul 2024–Jun 2025</option>
+            <option value="development">Development · Jul 2023–Jun 2024</option>
+          </select>
+          <label for="risk-region">Region</label>
+          <select id="risk-region">
+            <option value="pooled">All four regions</option>
+            <option value="NSW1">NSW1</option><option value="QLD1">QLD1</option>
+            <option value="SA1">SA1</option><option value="VIC1">VIC1</option>
+          </select>
+        </div>
+        <p id="risk-caption" aria-live="polite">Confirmation · Jul 2024–Jun 2025 · All four regions</p>
+        <div class="metric-grid">
+          <article class="metric-card metric-card-accent"><p class="metric-label">Brier improvement vs control</p><p id="risk-improvement" class="metric-value">6.38%</p><p class="metric-detail">Relative reduction in probability error</p></article>
+          <article class="metric-card"><p class="metric-label">Candidate calibration bias</p><p id="risk-bias" class="metric-value">−0.66 pp</p><p class="metric-detail">Mean predicted minus observed event rate</p></article>
+          <article class="metric-card"><p class="metric-label">Evaluation observations</p><p id="risk-count" class="metric-value">35,040</p><p class="metric-detail">Region-hours; temporally dependent</p></article>
+        </div>
+        <div class="risk-table-wrap" role="region" aria-label="Model comparison" tabindex="0">
+          <table class="risk-table">
+            <caption>Probability forecast comparison · lower Brier is better</caption>
+            <thead><tr><th scope="col">Model</th><th scope="col">Brier score</th><th scope="col">Mean predicted</th><th scope="col">Observed rate</th></tr></thead>
+            <tbody id="risk-rows">
+              <tr><td>168-hour seasonal naive</td><td>0.22035</td><td>28.09%</td><td>28.11%</td></tr>
+              <tr><td>Seasonal frequency</td><td>0.15847</td><td>17.46%</td><td>28.11%</td></tr>
+              <tr><td>Price / event / demand control</td><td>0.08317</td><td>25.03%</td><td>28.11%</td></tr>
+              <tr class="risk-candidate"><td>Control + wind &amp; solar</td><td>0.07786</td><td>27.45%</td><td>28.11%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <noscript><p>JavaScript is disabled. The cards and table show the pooled confirmation results; enable JavaScript to change the period or region.</p></noscript>
+        <div class="evidence-grid risk-explanation">
+          <article class="evidence-panel"><p class="eyebrow">TIME-ORDERED EVALUATION</p><h3>One specification, expanding monthly fits</h3><p>Exact lags of 2, 24 and 168 hours; training-window scaling; four fixed models. Earlier confirmation labels may enter later monthly fits once available. FY2025 also appeared in the original economic study.</p><p>The fixed gates passed in both periods. Confirmation's seven-day block bootstrap gave a Brier improvement interval of 0.00357–0.00742 (2.5th–97.5th percentiles; 1,000 draws).</p></article>
+          <article class="evidence-panel"><p class="eyebrow">RISK INTERPRETATION</p><h3>From probabilities to event exposure</h3><p>Across all four regions in confirmation, summed probabilities imply 9,617.6 expected negative-price event region-hours, compared with 9,850 realised.</p><p>These aggregate sequential hourly forecasts. Converting event exposure into money would require electricity volumes, contracts and settlement rules. This study does not estimate trading profit or a year-ahead event count.</p></article>
+        </div>
+        <figure class="risk-figure">
+          <img id="risk-calibration" src="data/confirmation_calibration.png" alt="Confirmation calibration curves across all four regions and models" loading="lazy" />
+          <figcaption id="risk-calibration-caption">Pooled confirmation calibration across all four regions. Points use actual mean predicted probabilities within each bin.</figcaption>
+        </figure>
+        <p>Small overall calibration bias does not establish calibration in every probability bin. Bootstrap uncertainty is conditional on this replay and the fixed seven-day block design.</p>
+        <p><a class="text-link" href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/report/phase2_forecast_extension.md">Read the extension report →</a> · <a class="text-link" href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/tree/main/outputs/phase2">Inspect the saved aggregate evidence →</a></p>
       </section>
 
       <section class="resources-section">

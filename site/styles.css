@@ -16,6 +16,21 @@
 }
 
 * { box-sizing: border-box; }
+.evidence-panel, .metric-card { min-width: 0; }
+.plot canvas { max-width: 100%; }
+
+.risk-section { padding-bottom: 80px; scroll-margin-top: 24px; }
+.risk-controls { flex-wrap: wrap; }
+.risk-table-wrap { overflow-x: auto; margin-top: 28px; border: 1px solid var(--border); border-radius: 7px; background: white; }
+.risk-table { width: 100%; border-collapse: collapse; text-align: left; font-variant-numeric: tabular-nums; }
+.risk-table caption { text-align: left; padding: 18px; font-weight: 750; }
+.risk-table th, .risk-table td { padding: 16px; border-top: 1px solid var(--border); }
+.risk-table th { color: var(--ink-soft); font-size: .85rem; }
+.risk-candidate { background: var(--mint); font-weight: 700; }
+.risk-explanation { padding: 28px 0; }
+.risk-figure { margin: 0 0 24px; padding: 16px; background: white; border: 1px solid var(--border); border-radius: 7px; }
+.risk-figure img { display: block; width: 100%; height: auto; }
+.risk-figure figcaption { color: var(--ink-soft); font-size: .85rem; margin-top: 12px; }
 
 html { scroll-behavior: smooth; }
 
