@@ -2,7 +2,7 @@
 
 ## Deliverable
 
-The repository includes a static, client-side dashboard in [`site/`](../site/). It is intentionally a GitHub Pages artefact rather than a Streamlit application: it needs no always-on server, secrets, database or paid hosting tier, and it is easy for an admissions or hiring reviewer to open from a portfolio link.
+The dashboard in [`site/`](../site/) runs in the browser and is hosted on GitHub Pages. Its charts read local aggregate data files, so viewing the results requires no account or running analysis server.
 
 The dashboard presents four reader-facing elements:
 

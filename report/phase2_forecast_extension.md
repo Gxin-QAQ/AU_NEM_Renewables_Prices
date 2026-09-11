@@ -75,10 +75,9 @@ The code checks the input SHA-256, canonical configuration and implementation
 digests, unique region-hour keys, exact lag spacing, origin availability,
 training-only transformations, common evaluation keys, finite predictions,
 fixed calibration bins, the fitting budget, and the development gate before
-confirmation. Twenty focused extension tests pass. The previously missing
-`data/raw/aemo_history/price/2019-07.zip` archive was restored from the
-pre-registered AEMO source and matched its expected 2,027,634 bytes and
-SHA-256. The full repository suite now has 55 passed and 2 skipped.
+confirmation. The 11 September 2026 validation run passed 55 tests, including
+20 focused extension tests; two pilot-data checks were skipped because their
+inputs were absent.
 
 The principal limitation is information availability. The hourly snapshot has
 no historical release and revision ledger, and fuel labels were assembled from
@@ -95,16 +94,16 @@ satisfied. FY2025 is therefore neither a year wholly excluded from fitting nor
 previously unseen research data. The bootstrap interval is conditional on this replay and its
 fixed seven-day block design; it is not a guarantee of future performance.
 
-## Quantitative learning
+## Evaluation choices
 
-The Brier score makes the decision rule explicit by penalising squared errors
-in probabilities, while log loss checks the effect of assigning very small or
-large probabilities. Expanding time splits prevent future regimes from
-entering earlier fits. Training-window standardisation prevents a full-sample
-transform from leaking confirmation information. Finally, block resampling
-acknowledges dependence across nearby hourly outcomes. These choices translate
-an applied association study into a reproducible market-risk exercise while
-keeping the uncertainty and information-set boundary visible.
+Brier score measures squared probability error; log loss additionally
+penalises confident predictions that are wrong. Monthly expanding fits use
+earlier observations, with scaling estimated inside each training window.
+The seven-day bootstrap blocks preserve some short-run dependence in the loss
+differences. The uncertainty estimate remains conditional on that block length
+and the observed replay period.
+
+## Reproduction
 
 Reproduce with a locally available hourly input matching SHA-256
 `ad849647098e863a68e68951b40397c45b3995c833d9928f1a0a147a0dc93ffc`.

@@ -4,22 +4,21 @@
 
 # Renewable Penetration, Wholesale Electricity Prices and Volatility in Australia's NEM
 
-Research and website publication share one checkout. Local data, the virtual
-environment and private drafts stay untracked; see [project layout and publication boundaries](docs/project_layout.md).
-
 ## Objective
 
-September 2026 update: [open the live dashboard](https://gxin-qaq.github.io/AU_NEM_Renewables_Prices/#risk)
-for the new negative-price probability replay alongside the frozen economic study.
-The renewable candidate reduced confirmation Brier error by 6.38% versus the
+This project examines how wind and utility-scale solar generation relates to
+wholesale electricity prices, volatility and negative-price risk in Australia's
+National Electricity Market (NEM). The main regions are NSW1, VIC1, QLD1 and
+SA1; TAS1 is included in robustness checks.
+
+A forecasting extension tests whether historical renewable generation adds
+predictive information. The renewable candidate reduced confirmation Brier error by 6.38% versus the
 lagged-price/event/demand control over 35,040 region-hours. This is conditional
 on an assumed two-hour data-availability rule. See the
 [extension report](report/phase2_forecast_extension.md),
 [public evidence and reproduction notes](docs/phase2_publication.md), the
-[project defense guide](docs/project_defense_guide.md), and
-[aggregate results](outputs/phase2/).
-
-This project studies whether renewable generation penetration is associated with lower wholesale electricity prices, price volatility, and negative-price risk across the Australian National Electricity Market (NEM) regions. The principal regions are NSW1, VIC1, QLD1 and SA1; TAS1 is retained for robustness checks.
+[research questions and interpretation](docs/project_defense_guide.md), and
+[live dashboard](https://gxin-qaq.github.io/AU_NEM_Renewables_Prices/).
 
 The analysis is designed as a reproducible region-by-time panel. Its primary study window is 1 July 2019 to 30 June 2025, aggregated from 5-minute dispatch intervals to hourly observations. It spans the 1 October 2021 five-minute-settlement transition, enabling a pre/post-5MS heterogeneity check as well as seasonal and peak/off-peak analysis.
 
@@ -30,9 +29,12 @@ The analysis is designed as a reproducible region-by-time panel. Its primary stu
 3. Do the relationships differ across NSW, VIC, QLD and SA?
 4. Do they differ by season and by peak/off-peak period?
 
-## Project status
+## Report and data
 
-**Completed research project.** The repository contains a verified FY2020–FY2025 AEMO source history, a reproducible five-minute-to-hourly panel, a frozen econometric design, core and robustness estimates, publication figures, a 10-page English report and a static dashboard. A fresh-environment reproducibility audit verified the source checksums, panels, tables, figures, notebooks and report; see the [reproducibility audit](docs/task11_reproducibility_audit.md).
+The repository provides data-processing and estimation code, final result tables,
+a 10-page English report and a static dashboard. Raw market data are not
+distributed with the repository. Acquisition requirements and historical
+validation records are documented in the [reproducibility audit](docs/task11_reproducibility_audit.md).
 
 The central econometric risk is endogeneity: realised renewable output, demand, outages, network constraints, bidding and price are jointly determined. All results are therefore described as *conditional associations*, not causal effects. The identification audit does not support a simple weather-IV causal claim because weather also affects demand and rooftop PV, and no plant-weighted instrument or exclusion audit exists.
 
@@ -64,6 +66,9 @@ These patterns survive the main sample, fuel-mapping, fixed-effect and covarianc
 
 ## Repository layout
 
+Research and publication use the same checkout. Local data, the environment
+and private drafts stay untracked; see [project layout](docs/project_layout.md).
+
 ```
 config/       Analysis choices, region codes, mappings and source URLs
 data/         Raw/intermediate/processed data plus a tracked data README
@@ -83,9 +88,12 @@ tests/        Data-quality and transformation tests
 2. Standardise source timestamps to fixed NEM market time (`Australia/Brisbane`, AEST/UTC+10), then derive state-local clocks only for heterogeneity analysis; aggregate 5-minute data to hourly values.
 3. Construct regional renewable shares, demand controls and fuel-mapping diagnostics.
 4. Run descriptive checks, two-way fixed effects, distributed lags, negative-price logit/probit, and pre-specified heterogeneity and robustness tests.
-5. Export publication-ready tables/figures and write the 8–10 page report.
+5. Export tables and figures and write the English report.
 
-Weather-IV estimation was gated out after the identification audit. Full-sample unpenalised q = 0.50, 0.90 and 0.95 quantile models did not complete under bounded computation and are transparently omitted rather than replaced with a different estimator.
+Weather-IV estimation did not pass the identification review. Full-sample
+unpenalised q = 0.50, 0.90 and 0.95 quantile models did not finish within the
+computation limit. Those estimates are not reported, and no alternative
+estimator was substituted.
 
 ## Build status
 

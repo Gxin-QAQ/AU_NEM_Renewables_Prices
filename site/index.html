@@ -117,7 +117,7 @@
         <div class="boundary-callout">
           <p class="eyebrow">INTERPRETATION BOUNDARY</p>
           <h2 id="boundary-title">These are conditional associations, not causal effects.</h2>
-          <p>Realised renewable output, demand, outages, network constraints, bidding and prices are jointly determined. The project’s identification audit rejected a simple weather-IV causal claim; this dashboard preserves that boundary rather than overstating the evidence.</p>
+          <p>Renewable output and prices both respond to demand, outages, network constraints and bidding. The fixed effects do not isolate an exogenous change in renewable supply, and the available weather data do not support a valid instrument.</p>
           <a class="text-link" href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/docs/task9_robustness_identification_audit.md" target="_blank" rel="noreferrer">Read the identification audit <span aria-hidden="true">→</span></a>
         </div>
         <div class="method-grid">
@@ -193,11 +193,11 @@
             <div class="exposure-metric"><small>Observed event frequency</small><span id="risk-exposure-observed">28.11%</span></div>
           </div>
           <div class="exposure-roles">
-            <div><strong>Generator</strong><span>For output sold at a negative spot price, the energy payment is negative. Contracts and hedges determine the net exposure.</span><span class="role-question">Question: when would changing output be feasible and worthwhile?</span></div>
-            <div><strong>Electricity buyer</strong><span>A spot-exposed buyer may benefit from negative prices. A fixed retail tariff may not pass that price through.</span><span class="role-question">Question: can demand move into those intervals?</span></div>
-            <div><strong>Storage operator</strong><span>A negative price may create a charging opportunity. Capacity, efficiency, contracts and later prices affect its value.</span><span class="role-question">Question: is charging feasible, and what is the value of waiting?</span></div>
+            <div><strong>Generator</strong><span>Selling output at a negative spot price produces a negative energy payment. Contracts, hedges and the ability to reduce output determine the net exposure.</span></div>
+            <div><strong>Electricity buyer</strong><span>A buyer exposed to spot prices may benefit by shifting demand into low-price intervals. A fixed retail tariff may not pass those prices through.</span></div>
+            <div><strong>Storage operator</strong><span>Negative prices may offer a charging opportunity. Its value depends on available capacity, efficiency, contracts and later electricity prices.</span></div>
           </div>
-          <p class="exposure-takeaway">For economics, this motivates questions about incentives and flexibility. For finance, it motivates exposure monitoring and contract analysis. The replay evaluates event probabilities; a monetary model would also need interval prices, volumes and contractual terms.</p>
+          <p class="exposure-takeaway">The same event can affect production, demand and contract exposure differently. Estimating its monetary effect would require interval prices, electricity volumes and contractual terms in addition to event probabilities.</p>
         </div>
         <details class="method-details">
           <summary>Method, uncertainty &amp; calibration</summary>
@@ -224,7 +224,7 @@
             <a href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/report/AU_NEM_Renewables_Prices_Research_Report.docx" target="_blank" rel="noreferrer">10-page research report <span aria-hidden="true">↗</span></a>
             <a href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/notebooks/03_final_results.ipynb" target="_blank" rel="noreferrer">Executed results notebook <span aria-hidden="true">↗</span></a>
             <a href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/data/README_EN.md" target="_blank" rel="noreferrer">Data README &amp; sources <span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/docs/project_defense_guide.md" target="_blank" rel="noreferrer">Project defense guide <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/docs/project_defense_guide.md" target="_blank" rel="noreferrer">Research questions &amp; interpretation <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>

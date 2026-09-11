@@ -1,8 +1,7 @@
 """Render the final research report from Markdown to a styled DOCX.
 
-This script is intentionally independent of the project's econometric
-environment. Run it with the isolated Codex document Python runtime, which
-provides python-docx and Pillow.
+Run with the project-local .venv, using the reporting dependencies declared
+in requirements.txt.
 """
 
 from __future__ import annotations
