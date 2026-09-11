@@ -2,7 +2,7 @@
 
 ## Status and claim boundary
 
-Specification version `1.0-frozen` is locked in `config/econometric_spec.yml` before core estimation. The estimand is a conditional, short-run within-region association. Realised renewable output, demand and price are jointly determined in dispatch, so fixed effects and lags do not justify causal language.
+Specification version `1.0-task7-frozen` is locked in `config/econometric_spec.yml` before core estimation. The estimand is a conditional, short-run within-region association. Realised renewable output, demand and price are jointly determined in dispatch, so fixed effects and lags do not justify causal language.
 
 The estimation workflow may implement the models below but may not change the headline exposure, lag windows, fixed effects, sample, covariance estimator or outcome hierarchy after seeing significance. Any necessary change requires a version bump and a written reason.
 

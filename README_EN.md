@@ -4,6 +4,9 @@
 
 # Renewable Penetration, Wholesale Electricity Prices and Volatility in Australia's NEM
 
+Research and website publication share one checkout. Local data, the virtual
+environment and private drafts stay untracked; see [project layout and publication boundaries](docs/project_layout.md).
+
 ## Objective
 
 September 2026 update: [open the live dashboard](https://gxin-qaq.github.io/AU_NEM_Renewables_Prices/#risk)

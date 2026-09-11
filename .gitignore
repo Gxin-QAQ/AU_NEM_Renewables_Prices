@@ -12,6 +12,18 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 .venv/
+.pytest_cache/
+.local/
+
+# Private research handoff and immutable local run records
+/PROJECT_CONTEXT.md
+/docs/decision_log.md
+/docs/phase2_final_review.md
+/docs/phase2_information_set_audit.md
+/docs/work_plan.md
+/report/phase2_application_summary.md
+/outputs/phase2/*_manifest.json
+/outputs/phase2/*_gate.json
 
 # Keep the folder structure in version control
 !data/**/.gitkeep

@@ -4,6 +4,8 @@
 
 # 可再生能源渗透率、批发电价与波动：澳大利亚 NEM
 
+研究与网页发布现统一在本仓库维护；本地数据、运行环境和私人草稿不上传。参见[项目目录与发布边界](docs/project_layout.md)。
+
 ## 项目目标
 
 2026 年 9 月更新：[在线看板](https://gxin-qaq.github.io/AU_NEM_Renewables_Prices/#risk)
