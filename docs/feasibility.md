@@ -1,5 +1,11 @@
 # Feasibility assessment
 
+Historical planning note, retained to document the initial choices. The proposed
+stages below are not the current execution plan. The adopted sample and models
+are in [the specification](task7_econometric_specification.md); rejected and
+unfinished analyses are recorded in [the robustness audit](task9_robustness_identification_audit.md).
+The forecasting extension is documented in [its report](../report/phase2_forecast_extension.md).
+
 ## Decision
 
 Proceed with a minimum viable study based on hourly region-level observations, FY2020–FY2025, for NSW1, VIC1, QLD1 and SA1. Add TAS1 in robustness tests. Do not begin with a full 5-minute, all-NEM, weather-IV causal design: it adds material engineering and identification risk without improving the first credible deliverable proportionally.

@@ -2,8 +2,7 @@
 
 Registration identity, region, dispatch type and effective dates come from
 AEMO's official DUDETAILSUMMARY table. Fuel technology labels come from a
-captured OpenElectricity facility export and are explicitly marked as a
-secondary source. The two layers are never silently conflated.
+captured OpenElectricity facility export, recorded as a secondary source.
 """
 
 from __future__ import annotations

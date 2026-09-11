@@ -95,10 +95,6 @@ unpenalised q = 0.50, 0.90 and 0.95 quantile models did not finish within the
 computation limit. Those estimates are not reported, and no alternative
 estimator was substituted.
 
-## Build status
-
-The final report is 10 rendered pages and contains the economic interpretation, headline table, regional heterogeneity, robustness figure, limitations and reference list. The dashboard is a self-contained static site with locally served data and no third-party chart dependency; see [the dashboard note](docs/task12_dashboard.md). The GitHub Pages workflow is included for publication.
-
 ## Environment
 
 Use the project-local virtual environment for all commands. Create `.venv` with the minimal build stack (`pandas`, `pyarrow`, `PyYAML`, `pytest`); `requirements.txt` defines the complete econometric and reporting dependencies. Never install project packages into system Python.
@@ -136,7 +132,11 @@ The preferred price outcome uses `asinh(RRP)` because regional reference prices 
 
 ## Reproducibility
 
-The repository deliberately does not commit large market extracts. Each downloader records source URLs, download time, checksum and source vintage in a manifest; tracked frozen copies are stored in [`provenance/`](provenance/), while compact final result tables are stored in `outputs/tables/`. A complete raw-data rebuild still requires approximately 1.98 GB of compressed AEMO source files. Install dependencies only inside the repository-local `.venv`; no project package should be installed into system Python.
+Large market extracts are not distributed with the repository. Download
+manifests record source URLs, download times, checksums and source vintages;
+archived copies are in [`provenance/`](provenance/), and final result tables
+are in `outputs/tables/`. A complete raw-data rebuild requires approximately
+1.98 GB of compressed AEMO source files.
 
 ## Sources
 

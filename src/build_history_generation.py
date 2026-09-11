@@ -4,8 +4,7 @@
 ``DISPATCH_UNIT_SCADA`` supplies unit output.  The latter is several million
 records per month, so this module reads it in CSV chunks, maps each chunk to
 the effective-dated DUID crosswalk, and immediately aggregates it to
-region--five-minute observations.  It intentionally does *not* invent a
-price series: historical RRP is joined later from the separate
+region--five-minute observations. Historical RRP is joined later from the separate
 ``DISPATCHPRICE`` source table.
 """
 

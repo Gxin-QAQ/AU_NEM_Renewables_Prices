@@ -1,6 +1,6 @@
 """Join validated historical RRP to generation-demand partitions.
 
-This is deliberately separate from SCADA aggregation: it adds the immutable
+This step follows SCADA aggregation. It adds the immutable
 ``DISPATCHPRICE`` source to already audited monthly five-minute partitions and
 then reproduces the project's hourly price, volatility and negative-price
 outcomes.

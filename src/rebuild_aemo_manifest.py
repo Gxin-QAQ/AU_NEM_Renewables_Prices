@@ -9,7 +9,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from src.download_aemo_pilot import ARCHIVE_ROOT, DATASETS, MANIFEST_FIELDS, build_url
+from src.download_aemo_pilot import MANIFEST_FIELDS, build_url
 
 
 FILENAME_PATTERN = re.compile(

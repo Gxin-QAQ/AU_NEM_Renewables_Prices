@@ -1,6 +1,6 @@
 """Download a bounded, auditable AEMO NEMWeb pilot sample.
 
-The script intentionally uses only Python's standard library. It downloads the
+The script uses Python's standard library to download the
 public daily dispatch and SCADA ZIP archives, preserves them as immutable raw
 inputs, and writes one manifest record per file.
 

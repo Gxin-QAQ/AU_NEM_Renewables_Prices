@@ -21,7 +21,7 @@
       <div id="top" class="hero-content shell">
         <p class="eyebrow">ENERGY ECONOMICS · MARKET RISK · AUSTRALIA</p>
         <h1>Renewables, wholesale prices<br />&amp; negative-price risk</h1>
-        <p class="hero-copy">How does renewable supply relate to electricity prices—and can its recent history help forecast negative-price events? An applied economics study with a market-risk extension.</p>
+        <p class="hero-copy">Regional evidence on wind and solar generation, wholesale prices and hourly negative-price forecasts in Australia's National Electricity Market.</p>
         <p id="sample-window" class="sample-window" aria-live="polite">1 July 2019 – 30 June 2025 · NSW1 · VIC1 · QLD1 · SA1</p>
       </div>
     </header>
@@ -44,12 +44,11 @@
             <span class="path-link">Compare forecasts &amp; interpret exposure →</span>
           </a>
         </div>
-        <p class="path-footnote">Two different questions: conditional association in the economic study; predictive performance in the historical replay.</p>
       </section>
       <section id="economics" class="shell findings" aria-labelledby="headline-title">
         <div class="section-heading">
           <p class="eyebrow">01 / ECONOMIC EVIDENCE</p>
-          <h2 id="headline-title">What moves together when wind and solar’s share rises?</h2>
+          <h2 id="headline-title">Price, negative-price frequency and volatility</h2>
           <p>For a 10 percentage-point increase in wind and utility-solar share, the model estimates the following associations after accounting for controls and fixed effects. These estimates do not establish causality.</p>
         </div>
         <div class="metric-grid" aria-live="polite">
@@ -98,15 +97,15 @@
         <article class="evidence-panel">
           <div class="panel-heading">
             <p class="eyebrow">REGIONAL HETEROGENEITY</p>
-            <h2>One pooled result is not every state’s result</h2>
-            <p>Region-specific transformed-price associations from the frozen specification. Whiskers are 95% confidence intervals.</p>
+            <h2>Price associations by region</h2>
+            <p>Region-specific coefficients for asinh(RRP). Whiskers show 95% confidence intervals.</p>
           </div>
           <div id="heterogeneity-chart" class="plot plot-compact" role="img" aria-label="Regional transformed-price associations with 95 percent confidence intervals"></div>
         </article>
         <article class="evidence-panel">
           <div class="panel-heading">
             <p class="eyebrow">ROBUSTNESS</p>
-            <h2>The price result across stated checks</h2>
+            <h2>Sensitivity to model and sample choices</h2>
             <p>Selected pre-specified sample, construction, fixed-effect and covariance checks; outcome is transformed price.</p>
           </div>
           <div id="robustness-chart" class="plot plot-compact" role="img" aria-label="Price-result robustness associations with 95 percent confidence intervals"></div>
@@ -115,7 +114,7 @@
 
       <section class="shell boundary-section" aria-labelledby="boundary-title">
         <div class="boundary-callout">
-          <p class="eyebrow">INTERPRETATION BOUNDARY</p>
+          <p class="eyebrow">LIMITATIONS</p>
           <h2 id="boundary-title">These are conditional associations, not causal effects.</h2>
           <p>Renewable output and prices both respond to demand, outages, network constraints and bidding. The fixed effects do not isolate an exogenous change in renewable supply, and the available weather data do not support a valid instrument.</p>
           <a class="text-link" href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/docs/task9_robustness_identification_audit.md" target="_blank" rel="noreferrer">Read the identification audit <span aria-hidden="true">→</span></a>
@@ -134,8 +133,8 @@
             <p id="method-inference">Clustered by AEST week</p>
           </article>
           <article>
-            <p class="method-kicker">Source boundary</p>
-            <p>Compact final tables only</p>
+            <p class="method-kicker">Displayed data</p>
+            <p>Aggregate research results</p>
           </article>
         </div>
       </section>
@@ -183,8 +182,8 @@
         <noscript><p>JavaScript is disabled. The cards and table show the pooled confirmation results; enable JavaScript to change the period or region.</p></noscript>
         <div class="exposure-card">
           <div>
-            <p class="eyebrow">FROM FORECASTS TO MARKET PARTICIPANTS</p>
-            <h3>One price event, different economic exposures.</h3>
+            <p class="eyebrow">MARKET PARTICIPANTS</p>
+            <h3>Who is exposed to negative prices?</h3>
             <p id="risk-exposure-context">Across all four regions in the selected replay period, compare the average forecast probability with the observed share of region-hours containing a negative five-minute price.</p>
             <p class="exposure-boundary">These are period averages, not a forecast for a particular future hour. An event means at least one negative five-minute price; it does not mean the whole hour is negative.</p>
           </div>
@@ -218,7 +217,7 @@
         <div class="shell resources-inner">
           <div>
             <p class="eyebrow">REPRODUCIBLE RESEARCH</p>
-            <h2>Inspect the work behind the dashboard.</h2>
+            <h2>Reports, data and methods</h2>
           </div>
           <div class="resource-links">
             <a href="https://github.com/Gxin-QAQ/AU_NEM_Renewables_Prices/blob/main/report/AU_NEM_Renewables_Prices_Research_Report.docx" target="_blank" rel="noreferrer">10-page research report <span aria-hidden="true">↗</span></a>

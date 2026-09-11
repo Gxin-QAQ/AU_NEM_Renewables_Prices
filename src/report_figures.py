@@ -1,7 +1,7 @@
 """Build the coefficient figures used in the final research report.
 
-The module reads only frozen Task 8–9 result tables. It never re-estimates a
-model, which keeps the report layer separate from the econometric pipeline.
+Figures are drawn from saved estimation and robustness tables; no models
+are fitted here.
 """
 
 from __future__ import annotations

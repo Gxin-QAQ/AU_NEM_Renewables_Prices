@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from src.aemo_dispatch import interval_start_from_settlement, parse_region_archive, parse_scada_archive
+from src.aemo_dispatch import parse_region_archive, parse_scada_archive
 from src.duid_mapping import PILOT_DATES
 
 

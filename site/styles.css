@@ -5,8 +5,6 @@
   --white: #ffffff;
   --navy: #102a43;
   --navy-deep: #071a2e;
-  --blue: #1677c8;
-  --sky: #51a5e0;
   --teal: #008f83;
   --mint: #d9f1ed;
   --gold: #e8a227;
@@ -56,10 +54,8 @@
 .exposure-roles div { display: flex; flex-direction: column; gap: 5px; padding-top: 15px; border-top: 1px solid #b8d9d4; }
 .exposure-roles strong { color: var(--navy); }
 .exposure-roles span { color: var(--ink-soft); font-size: .95rem; }
-.exposure-roles .role-question { margin-top: 8px; color: #075d5a; font-weight: 650; }
-.method-details { margin-top: 24px; }
+.method-details { margin: 24px 0; }
 .method-details summary { cursor: pointer; padding: 14px 16px; border: 1px solid var(--border); border-radius: 4px; color: #075d5a; font-weight: 750; list-style-position: inside; }
-.method-details { margin-bottom: 24px; }
 .method-details[open] summary { margin-bottom: 8px; background: #eef8f6; }
 
 html { scroll-behavior: smooth; }
@@ -164,24 +160,6 @@ h2 {
   color: #d9e8f5;
   font-size: 1.1rem;
 }
-
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  min-height: 45px;
-  padding: 10px 17px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  font-weight: 750;
-  text-decoration: none;
-}
-
-.button-primary { background: #75d6cd; color: #063637; }
-.button-primary:hover { background: #99e5dc; }
-.button-secondary { border-color: #88a8c0; color: var(--white); }
-.button-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
 
 .sample-window { margin: 22px 0 0; color: #bcd0df; font-size: .875rem; }
 

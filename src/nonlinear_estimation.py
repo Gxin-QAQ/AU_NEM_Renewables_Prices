@@ -2,7 +2,7 @@
 
 The frozen specification uses region-month and local-hour-by-weekday effects
 for nonlinear models. This module uses Binomial GLM with Logit and Probit
-links, clustered by AEST week. It is intentionally separate from the exact-
+links, clustered by AEST week. These are separate from the exact-
 hour fixed-effect LPM, which remains the headline binary estimate.
 """
 

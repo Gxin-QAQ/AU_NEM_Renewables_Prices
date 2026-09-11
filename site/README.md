@@ -1,6 +1,7 @@
 # Static research dashboard
 
-This directory is a deployable, dependency-free dashboard. Its payload is generated from the compact, tracked final tables only; it deliberately excludes raw AEMO archives, the hourly research panel, DUIDs and intermediate extracts.
+The dashboard uses browser-native Canvas and local data files. It displays
+aggregate economic estimates and negative-price forecast results.
 
 ## Rebuild the payload
 
@@ -8,6 +9,7 @@ From the project root, using only the project virtual environment:
 
 ```bash
 .venv/bin/python -m src.build_dashboard_data --root .
+.venv/bin/python -m src.build_phase2_dashboard
 ```
 
 For a local preview:
@@ -18,6 +20,10 @@ For a local preview:
 
 Then open `http://localhost:8000`. The deployed site has no server-side code, external chart dependency or credentials.
 
-## Public interpretation boundary
+## Reading the results
 
-The visualised estimates are conditional associations, not causal effects. See [`../docs/task9_robustness_identification_audit.md`](../docs/task9_robustness_identification_audit.md) before reusing them.
+The economic estimates are conditional associations; see the
+[identification audit](../docs/task9_robustness_identification_audit.md).
+The forecasts are a historical replay under an assumed two-hour data delay;
+see the [extension report](../report/phase2_forecast_extension.md).
+Deployment details are in the [dashboard note](../docs/task12_dashboard.md).

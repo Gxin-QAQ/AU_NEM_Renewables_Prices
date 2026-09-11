@@ -1,6 +1,6 @@
 """Write reproducible descriptive tables for the price-free historical panel.
 
-Price outcomes are intentionally excluded until the separately archived
+Price outcomes are excluded until the separately archived
 ``DISPATCHPRICE`` source has been acquired and joined.  These tables establish
 the coverage, demand and renewable-output side of the eventual analysis.
 """

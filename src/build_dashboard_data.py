@@ -1,8 +1,7 @@
-"""Build the compact, public data payload used by the static Plotly dashboard.
+"""Build the JSON and JavaScript data used by the static dashboard.
 
-The dashboard intentionally reads only tracked final result tables.  It never
-exports raw AEMO archives, the hourly research panel, unit identifiers, or
-intermediate data.
+Inputs are the tracked final result tables. Output contains aggregate results,
+without raw market observations or unit identifiers.
 """
 
 from __future__ import annotations
@@ -75,7 +74,7 @@ def _read_table(root: Path, filename: str) -> pd.DataFrame:
 
 
 def _number(value: float, digits: int = 6) -> float:
-    """Return a JSON-safe, deliberately rounded numeric value."""
+    """Round a numeric value for JSON output."""
     return round(float(value), digits)
 
 
