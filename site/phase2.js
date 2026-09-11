@@ -17,9 +17,11 @@
     document.getElementById("risk-count").textContent = candidate.nobs.toLocaleString("en-GB");
     document.getElementById("risk-exposure-prob").textContent =
       (candidate.mean_predicted * 100).toFixed(2) + "%";
+    document.getElementById("risk-exposure-observed").textContent =
+      (candidate.observed_rate * 100).toFixed(2) + "%";
     const exposureRegion = region.value === "pooled" ? "all four regions" : region.value;
     document.getElementById("risk-exposure-context").textContent =
-      `For an illustrative one-hour, 100 MWh spot exposure in ${exposureRegion}, the selected period's average candidate probability is shown below. The dashboard does not estimate the dollar effect of a negative event.`;
+      `For ${exposureRegion} in ${period.options[period.selectedIndex].text}, compare the average forecast probability with the observed share of region-hours containing a negative five-minute price.`;
     document.getElementById("risk-caption").textContent =
       `${period.options[period.selectedIndex].text} · ${region.options[region.selectedIndex].text}`;
     const body = document.getElementById("risk-rows");

@@ -6,6 +6,10 @@ and learning statements must be checked by the applicant before use.
 
 ## The project in 45 seconds
 
+The first-person drafts below require the contribution check at the end of
+this guide. Being able to explain an artifact is different from having designed
+or written it independently.
+
 ### English
 
 I studied Australia's National Electricity Market in two connected layers. The
@@ -73,18 +77,60 @@ exogenous intervention.
 
 ### What does the electricity-exposure example add?
 
-The example makes the risk use case concrete without inventing a payoff. For a
-one-hour, 100 MWh spot exposure, the candidate probability describes how often
-the selected period and region experienced the negative-price event in the
-replay. A generator may care about revenue downside; a load may care about
-settlement exposure; storage may care about a charging opportunity. To compute
-money, the project would still need output or load, contracts, hedges, storage
-state, efficiency and settlement rules.
+The dashboard compares two quantities: the candidate's mean predicted
+probability and the observed event frequency. In pooled confirmation these are
+27.45% and 28.11%, respectively. The first is an average of sequential forecasts;
+the second is the share of evaluated region-hours that actually contained at
+least one negative five-minute price. Neither is a forecast for a particular
+future hour, and the event does not imply a negative price throughout the hour.
 
-This is therefore useful to both fields. It is especially helpful for a finance
-application because it connects a probability to an exposure. It is also useful
-in economics because it shows how a market statistic relates to different
-participants and does not alter the identification claim.
+A generator selling output at a negative spot price has a negative energy
+payment on that output, while a spot-exposed buyer may benefit; contracts and
+hedges change the net exposure. Storage may have an opportunity to charge,
+subject to capacity, efficiency and the value of later use. These are
+illustrative mechanisms, not estimated participant outcomes.
+
+For economics, this motivates questions about incentives, demand flexibility
+and which participants bear price risk. For finance, it motivates exposure
+monitoring, cash-flow sensitivity and contract analysis. A monetary extension
+would require interval prices, volumes and contractual terms, plus operating
+constraints for storage. Multiplying an event probability by 100 MWh would not
+produce a monetary risk measure. The earlier arbitrary 100-MWh illustration has
+therefore been removed.
+
+中文解释：第四项对两类申请都有用。经济学侧重同一价格信号如何对应不同参与者的激励、需求调整和风险分配；金融侧重这些价格事件如何影响敞口、现金流与合同安排。当前项目提供概率证据和机制讨论，没有估计这些参与者的实际盈亏或政策效果。
+
+## Adapt the opening to the application
+
+Choose the opening that matches the programme, then use the same underlying
+evidence. The emphasis changes; the results and limitations do not.
+
+### Economics opening
+
+This project examines how wind and utility-scale solar penetration relates to
+wholesale electricity prices in Australia's NEM. The panel analysis considers
+price levels, negative-price events and within-hour volatility, with fixed
+effects, regional heterogeneity and robustness checks. A 10-percentage-point
+increase in renewable share is conditionally associated with A$11.80/MWh lower
+hourly prices and a 3.58-percentage-point higher negative-price probability.
+The forecasting extension asks whether recent renewable information also adds
+predictive value. The central limitation is identification: these associations
+do not isolate a causal effect of renewable supply or policy.
+
+中文重点：先讲经济问题、面板设计和地区差异，再讲预测扩展；参与者示例用于提出激励与灵活性问题，不用于证明政策效果。
+
+### Finance and market-risk opening
+
+This project evaluates whether lagged renewable information improves
+negative-price probability forecasts in Australia's NEM. Under a stated
+two-hour data-availability assumption, a fixed logistic candidate reduced
+confirmation-period Brier error by 6.38% relative to a price, event and demand
+control. Monthly expanding fits and calibration checks connect the empirical
+question to risk modelling. The result is a conditional historical replay:
+historical data vintages remain unverified, and event probabilities alone do
+not establish cash-flow losses or trading profits.
+
+中文重点：先讲预测时点、对照模型、误差与校准，再用发电商、用电方或储能方解释敞口；没有收益数据时，不把概率改善换算成收益改善。
 
 ### Why not add many machine-learning models?
 
@@ -104,6 +150,9 @@ sequential confirmation replay, not a wholly untouched research sample.
 
 Use the following wording only after checking that it matches the applicant's
 actual work. Replace the bracketed items with facts that can be defended.
+For each row, record whether the work was independently done, assisted, or
+reviewed, and name one decision or correction that can be explained in an
+interview. Do not select the strongest verb merely because the artifact exists.
 
 | Area | Safe draft wording | Evidence to verify |
 |---|---|---|
@@ -119,6 +168,10 @@ actual work. Replace the bracketed items with facts that can be defended.
 Avoid saying “the model predicts profits”, “renewables cause lower prices”, or
 “FY2025 was completely unseen”. None of those statements follows from the
 verified evidence.
+
+A useful contribution answer is: “I was responsible for [specific task], with
+[assistance, if applicable]. I checked [specific artifact or result], and changed
+[specific choice] because [reason].” Supply actual facts before using it.
 
 ## Last-minute answer structure
 
