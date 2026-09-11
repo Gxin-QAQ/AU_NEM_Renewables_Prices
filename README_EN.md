@@ -12,7 +12,8 @@ The renewable candidate reduced confirmation Brier error by 6.38% versus the
 lagged-price/event/demand control over 35,040 region-hours. This is conditional
 on an assumed two-hour data-availability rule. See the
 [extension report](report/phase2_forecast_extension.md),
-[public evidence and reproduction notes](docs/phase2_publication.md), and
+[public evidence and reproduction notes](docs/phase2_publication.md), the
+[project defense guide](docs/project_defense_guide.md), and
 [aggregate results](outputs/phase2/).
 
 This project studies whether renewable generation penetration is associated with lower wholesale electricity prices, price volatility, and negative-price risk across the Australian National Electricity Market (NEM) regions. The principal regions are NSW1, VIC1, QLD1 and SA1; TAS1 is retained for robustness checks.

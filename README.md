@@ -10,7 +10,8 @@
 新增负电价概率回放，保留原有经济学研究。加入滞后风电与光伏信息后，确认期
 35,040 个区域—小时观测的 Brier 误差相对电价/事件/需求对照降低 6.38%。
 结论以两小时数据可用性假设为条件。详见[扩展报告](report/phase2_forecast_extension.md)、
-[公开证据与复现说明](docs/phase2_publication.md)和[汇总结果](outputs/phase2/)。
+[公开证据与复现说明](docs/phase2_publication.md)、[项目答辩指南](docs/project_defense_guide.md)
+和[汇总结果](outputs/phase2/)。
 
 本项目研究可再生能源发电渗透率是否与澳大利亚国家电力市场（NEM）各区域更低的批发电价、不同的价格波动和更高的负电价风险相关。主要分析区域为 NSW1、VIC1、QLD1 和 SA1，并将 TAS1 留作稳健性检验。
 
