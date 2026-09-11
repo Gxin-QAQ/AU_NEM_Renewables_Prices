@@ -287,7 +287,7 @@ def build_month(root: Path, period: str, crosswalk: pd.DataFrame, config: dict[s
 
 
 def build_history(root: Path, start: str, end: str, resume: bool) -> list[dict[str, float | int | str]]:
-    """Build reproducible monthly partitions and one compact full hourly file."""
+    """Build monthly partitions and the full hourly file."""
     config = load_project_config(root / "config/project.yml")
     crosswalk = load_crosswalk(root / "data/interim/duid_crosswalk.csv")
     records: list[dict[str, float | int | str]] = []

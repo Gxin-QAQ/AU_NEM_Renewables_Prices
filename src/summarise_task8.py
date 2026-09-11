@@ -22,7 +22,7 @@ CORE_LABELS = {
 
 
 def build_headline_table(root: Path) -> pd.DataFrame:
-    """Build one transparent table; all effects are associations per 10pp."""
+    """Build the headline table; effects are associations per 10pp."""
     tables = root / "outputs/tables"
     coefficients = pd.read_csv(tables / "task8_coefficients.csv")
     contrasts = pd.read_csv(tables / "task8_linear_contrasts.csv")

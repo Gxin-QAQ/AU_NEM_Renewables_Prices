@@ -24,10 +24,8 @@ from zipfile import ZipFile
 
 MMSDM_BASE = "https://nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM"
 TABLES = {
-    # ``DISPATCHREGIONSUM`` provides regional demand, but deliberately does
-    # not contain the regional reference price.  Keep price as a distinct
-    # source so the resulting panel has an auditable one-table-per-concept
-    # lineage.
+    # ``DISPATCHREGIONSUM`` provides regional demand, not the regional
+    # reference price. Keep price as a separate source in the panel.
     "region": "DISPATCHREGIONSUM",
     "price": "DISPATCHPRICE",
     "scada": "DISPATCH_UNIT_SCADA",

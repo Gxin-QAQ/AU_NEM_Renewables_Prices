@@ -64,7 +64,7 @@ Thus the project can claim regional and selected peak/season heterogeneity. It s
 
 ## UNKNOWN-fuel audit
 
-UNKNOWN positive output grows late in the sample. In the partial 2025 calendar year, the largest regional mean unknown-generation share is 2.30%, while the largest regional p99 is 15.30% (SA1). Treating every positive UNKNOWN MWh as renewable—an intentionally extreme upper bound—changes the transformed-price coefficient only from -0.270 to -0.267. Fuel mapping remains a documented data limitation, but it is not a material driver of the headline estimate.
+UNKNOWN positive output grows late in the sample. In the partial 2025 calendar year, the largest regional mean unknown-generation share is 2.30%, while the largest regional p99 is 15.30% (SA1). Treating every positive UNKNOWN MWh as renewable—an extreme upper bound—changes the transformed-price coefficient only from -0.270 to -0.267. Fuel mapping remains a documented data limitation, but it is not a material driver of the headline estimate.
 
 ## Weather-IV gate
 

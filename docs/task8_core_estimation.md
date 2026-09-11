@@ -30,7 +30,7 @@ Peak/off-peak, season and pre/post-5MS contrasts are included in `outputs/tables
 
 ## Nonlinear negative-price check
 
-Secondary Binomial GLMs with region-month plus local-hour-by-weekday effects converged for all 210,399 headline observations. Their point average marginal effects are +4.02 percentage points (Logit) and +3.91 percentage points (Probit), close to the exact-hour LPM direction and magnitude. Their inference is intentionally not reported as final because the frozen plan reserves AEST-week block-bootstrap inference for the robustness audit.
+Secondary Binomial GLMs with region-month plus local-hour-by-weekday effects converged for all 210,399 headline observations. Their point average marginal effects are +4.02 percentage points (Logit) and +3.91 percentage points (Probit), close to the exact-hour LPM direction and magnitude. They are not used for final inference because the frozen plan specifies AEST-week block-bootstrap inference for the robustness audit.
 
 ## Quantile-model status
 

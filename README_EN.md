@@ -16,11 +16,10 @@ predictive information. The renewable candidate reduced confirmation Brier error
 lagged-price/event/demand control over 35,040 region-hours. This is conditional
 on an assumed two-hour data-availability rule. See the
 [extension report](report/phase2_forecast_extension.md),
-[public evidence and reproduction notes](docs/phase2_publication.md), the
-[research questions and interpretation](docs/project_defense_guide.md), and
+[public evidence and reproduction notes](docs/phase2_publication.md), and the
 [live dashboard](https://gxin-qaq.github.io/AU_NEM_Renewables_Prices/).
 
-The analysis is designed as a reproducible region-by-time panel. Its primary study window is 1 July 2019 to 30 June 2025, aggregated from 5-minute dispatch intervals to hourly observations. It spans the 1 October 2021 five-minute-settlement transition, enabling a pre/post-5MS heterogeneity check as well as seasonal and peak/off-peak analysis.
+The analysis uses a region-by-time panel covering 1 July 2019 to 30 June 2025. Five-minute dispatch intervals are aggregated to hourly observations. The sample spans the 1 October 2021 five-minute-settlement transition, enabling pre/post-5MS, seasonal and peak/off-peak comparisons.
 
 ## Research questions
 
@@ -38,7 +37,7 @@ validation records are documented in the [reproducibility audit](docs/task11_rep
 
 The central econometric risk is endogeneity: realised renewable output, demand, outages, network constraints, bidding and price are jointly determined. All results are therefore described as *conditional associations*, not causal effects. The identification audit does not support a simple weather-IV causal claim because weather also affects demand and rooftop PV, and no plant-weighted instrument or exclusion audit exists.
 
-The final deliverable is [report/AU_NEM_Renewables_Prices_Research_Report.docx](report/AU_NEM_Renewables_Prices_Research_Report.docx), generated from [report/research_report.md](report/research_report.md). The [executed final-results notebook](notebooks/03_final_results.ipynb) preserves the result tables, reproducibility checks and figures. The [static dashboard source](site/) exposes the frozen headline, regional and robustness evidence without publishing raw research data. Supporting documentation includes the [frozen econometric design](docs/task7_econometric_specification.md), [core estimation memo](docs/task8_core_estimation.md), [robustness and identification audit](docs/task9_robustness_identification_audit.md), [data sources](docs/data_sources.md), [variable dictionary](docs/variable_dictionary.md) and [data README](data/README.md).
+The final deliverable is [report/AU_NEM_Renewables_Prices_Research_Report.docx](report/AU_NEM_Renewables_Prices_Research_Report.docx), generated from [report/research_report.md](report/research_report.md). The [executed final-results notebook](notebooks/03_final_results.ipynb) contains the result tables, checks and figures. The [static dashboard source](site/) exposes the frozen headline, regional and robustness evidence without publishing raw research data. Supporting documentation includes the [frozen econometric design](docs/task7_econometric_specification.md), [core estimation memo](docs/task8_core_estimation.md), [robustness and identification audit](docs/task9_robustness_identification_audit.md), [data sources](docs/data_sources.md), [variable dictionary](docs/variable_dictionary.md) and [data README](data/README.md).
 
 ## Main findings
 
@@ -72,7 +71,7 @@ and private drafts stay untracked; see [project layout](docs/project_layout.md).
 ```
 config/       Analysis choices, region codes, mappings and source URLs
 data/         Raw/intermediate/processed data plus a tracked data README
-docs/         Feasibility memo, source inventory and variable dictionary
+docs/         Study design, audit notes, source inventory and variable dictionary
 notebooks/    Exploratory and final analysis notebooks
 outputs/      Generated figures and tracked compact result tables
 provenance/   Tracked source-URL, vintage and SHA-256 manifest copies

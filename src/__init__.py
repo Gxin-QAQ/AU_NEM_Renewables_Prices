@@ -1,1 +1,1 @@
-"""Reproducible construction and analysis of the AU NEM regional panel."""
+"""Build and analyse the AU NEM regional panel."""

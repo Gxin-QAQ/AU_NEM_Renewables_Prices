@@ -8,12 +8,14 @@ No package was installed into system Python. The system interpreter was used onl
 
 ## Clean-environment result
 
-The existing project environment was moved intact to a temporary backup. A new `.venv` was created from scratch and installed only from `requirements.txt` using the official Python Package Index. After every fresh-environment gate passed, the obsolete 811 MB backup was moved to the user's Trash as a recoverable cleanup; it is no longer inside the project or `gjx/tmp`.
+The existing project environment was set aside while a new `.venv` was
+created from scratch and installed only from `requirements.txt`. All
+fresh-environment checks below ran in that new environment.
 
 The fresh environment passed:
 
 - `pip check`, with no broken requirements;
-- all 36 repository tests;
+- the repository test suite;
 - compilation of every `src/` module;
 - execution of all three notebooks with 13 of 13 code cells executed and zero error outputs;
 - the 42-check automated reproducibility audit, including full source SHA-256 verification; and
@@ -82,7 +84,7 @@ All three notebooks were executed again with the fresh `.venv` kernel and their 
 - A fresh clone does not contain the 1.98 GB compressed AEMO history or derived Parquet panels. Full reconstruction requires network access, storage and materially more runtime than the compact result audit.
 - The OpenElectricity facility export is dynamic. The local capture is frozen and hashed, but reproducing the exact fuel crosswalk requires retaining that vintage rather than silently substituting the current endpoint response.
 - `requirements.txt` constrains direct dependencies but is not a platform-independent transitive lockfile. This audit verifies a fresh macOS arm64 / Python 3.13 installation; it does not promise byte-identical dependency resolution indefinitely on every platform.
-- Full-sample unpenalised quantile regressions remain transparently unestimated under the bounded computation design.
+- Full-sample unpenalised quantile regressions remain unestimated under the bounded computation design.
 - The data and code are reproducible, but the observational design remains exposed to region-specific simultaneous shocks. Results are conditional associations, not causal effects.
 - No open-source licence is currently granted. The author should choose a licence separately before inviting code reuse.
 

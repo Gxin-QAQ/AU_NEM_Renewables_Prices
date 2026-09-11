@@ -11,10 +11,9 @@
 预测扩展检验历史出力信息是否有助于判断负电价事件。加入滞后风电与光伏信息后，确认期
 35,040 个区域—小时观测的 Brier 误差相对电价/事件/需求对照降低 6.38%。
 结论以两小时数据可用性假设为条件。详见[扩展报告](report/phase2_forecast_extension.md)、
-[公开证据与复现说明](docs/phase2_publication.md)、[研究问答](docs/project_defense_guide.md)
-和[在线看板](https://gxin-qaq.github.io/AU_NEM_Renewables_Prices/)。
+[公开证据与复现说明](docs/phase2_publication.md)和[在线看板](https://gxin-qaq.github.io/AU_NEM_Renewables_Prices/)。
 
-研究构建了一个可复现的“区域—时间”面板：研究期为 2019 年 7 月 1 日至 2025 年 6 月 30 日，将 5 分钟调度数据聚合为小时观测。样本跨越 2021 年 10 月 1 日的五分钟结算（5MS）转换，因此也能检验转换前后、季节以及峰谷时段的异质性。
+分析使用“区域—时间”面板：研究期为 2019 年 7 月 1 日至 2025 年 6 月 30 日，将 5 分钟调度数据聚合为小时观测。样本跨越 2021 年 10 月 1 日的五分钟结算（5MS）转换，因此也能检验转换前后、季节以及峰谷时段的异质性。
 
 ## 研究问题
 
@@ -29,7 +28,7 @@
 
 本研究最重要的计量风险是内生性：实际可再生出力、需求、机组故障、网络约束、报价和价格由共同机制决定。因此，所有结果均表述为**条件相关性**，而非因果效应。识别审计表明，天气同时影响需求和屋顶光伏，且缺少电厂加权工具变量及排除限制审计，因此不支持简单的天气 IV 因果主张。
 
-最终交付为 [英文研究报告](report/AU_NEM_Renewables_Prices_Research_Report.docx)，由 [Markdown 源文件](report/research_report.md) 生成。已经实际执行并保存输出的[最终结果 Notebook](notebooks/03_final_results.ipynb)提供结果表、可复现性检查和图形。[静态看板源码](site/)以不公开原始研究数据的方式呈现冻结的主结果、区域异质性和稳健性证据。配套材料包括[冻结计量设计](docs/task7_econometric_specification.md)、[核心估计备忘录](docs/task8_core_estimation.md)、[稳健性与识别审计](docs/task9_robustness_identification_audit.md)、[数据来源](docs/data_sources.md)、[变量字典](docs/variable_dictionary.md)和[数据说明](data/README.md)。
+最终交付为 [英文研究报告](report/AU_NEM_Renewables_Prices_Research_Report.docx)，由 [Markdown 源文件](report/research_report.md) 生成。已执行的[最终结果 Notebook](notebooks/03_final_results.ipynb)提供结果表、复现检查和图形。[静态看板源码](site/)以不公开原始研究数据的方式呈现冻结的主结果、区域异质性和稳健性证据。配套材料包括[冻结计量设计](docs/task7_econometric_specification.md)、[核心估计备忘录](docs/task8_core_estimation.md)、[稳健性与识别审计](docs/task9_robustness_identification_audit.md)、[数据来源](docs/data_sources.md)、[变量字典](docs/variable_dictionary.md)和[数据说明](data/README.md)。
 
 ## 主要结果
 
@@ -62,7 +61,7 @@
 ```
 config/       分析选择、区域代码、映射和来源 URL
 data/         原始/中间/处理后数据及可追溯的数据说明
-docs/         可行性备忘录、来源清单和变量字典
+docs/         研究设计、审计记录、来源清单和变量字典
 notebooks/    探索性与最终分析 Notebook
 outputs/      图形与结果汇总表
 provenance/   可提交的来源 URL、版本和 SHA-256 清单副本

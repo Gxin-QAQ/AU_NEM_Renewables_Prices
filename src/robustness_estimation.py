@@ -51,8 +51,8 @@ def prepare_task9_frame(frame: pd.DataFrame) -> pd.DataFrame:
         (result["wind_mw"] + result["solar_utility_mw"] + result["unmapped_scada_mw"]) / result["demand_mw"],
         np.nan,
     )
-    # Reuse the frozen headline ratio cap. Treating every UNKNOWN MWh as
-    # renewable is a deliberately conservative fuel-mapping upper bound.
+    # Reuse the frozen headline ratio cap. Count UNKNOWN output as renewable
+    # for an upper-bound fuel-mapping check.
     frozen_cap = result.loc[result["headline_sample"], "renewable_share_ws_winsor_p999"].max()
     result["renewable_share_ws_unknown_upper_10pp_p999"] = 10.0 * np.minimum(unknown_upper_share, frozen_cap)
     result["all_five_sample"] = (

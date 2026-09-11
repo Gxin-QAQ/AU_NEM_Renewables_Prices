@@ -1,10 +1,10 @@
-# Phase 2 public evidence — September 2026
+# Phase 2 public evidence
 
-The public extension includes the unchanged forecasting implementation,
-20 regression tests, frozen configuration, aggregate metric/calibration CSVs,
-calibration figures and confirmation bootstrap summary. The dashboard's
-period and region controls read a compact export of the saved metric CSVs.
-The calibration figure is pooled across regions and changes only with period.
+The public release contains the forecasting implementation, 20 regression
+tests, the frozen configuration, aggregate metric/calibration CSVs, calibration
+figures and the confirmation bootstrap summary. The dashboard's period and
+region controls read a compact export of the saved metric CSVs. The calibration
+figure is pooled across regions and changes only with period.
 
 The local research run passed its pre-registered development and confirmation
 gates. The canonical configuration hash is
@@ -13,12 +13,11 @@ implementation SHA-256 is
 `f1b8b5e21d5b03282e0f81a42ce99594b9a9b60b276a8288e79d6ab77dea40fe`.
 The input hash and reproduction commands are in the extension report.
 
-The original local manifests and row-level predictions remain local. They are
-not rewritten to make this partial public evidence bundle look like a complete
-run. A fresh clone can inspect aggregates, rebuild the dashboard payload and
-run synthetic extension tests. A full research replay requires the pinned
+Local manifests and row-level predictions are not part of the public release.
+A fresh clone can inspect the aggregates, rebuild the dashboard payload and run
+the synthetic extension tests. A full research replay requires the pinned
 hourly input; confirmation must follow a completed development run so the code
-can verify its configuration, source and saved evidence hashes.
+can verify its configuration, source and saved-evidence hashes.
 
 Use the repository-local virtual environment:
 
@@ -35,6 +34,5 @@ later monthly training windows after the embargo. FY2025 was also present in
 the original economic study. Event counts are region-hours, not profits,
 energy volumes or a year-ahead count forecast.
 
-The publication preserves the standalone repository's existing baseline
-dashboard implementation and Pages workflow. No raw data or applicant-specific
-application drafts are included.
+The repository does not include raw market data or private application
+materials.

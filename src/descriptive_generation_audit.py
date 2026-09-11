@@ -1,4 +1,4 @@
-"""Write reproducible descriptive tables for the price-free historical panel.
+"""Write descriptive tables for the historical generation-demand panel.
 
 Price outcomes are excluded until the separately archived
 ``DISPATCHPRICE`` source has been acquired and joined.  These tables establish

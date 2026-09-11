@@ -36,4 +36,4 @@ The public daily archive is not a long-run historical store. AEMO's earlier MMSD
 2. an approved, documented programmatic historical data source, while retaining AEMO as the underlying market-data authority; or
 3. a narrower recent sample, explicitly framed as such.
 
-This decision is intentionally deferred to the source/schema task because it affects reproducibility, storage and the claims the study can make.
+This decision is deferred to the source/schema task because it affects storage and the claims the study can make.

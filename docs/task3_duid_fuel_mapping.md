@@ -8,7 +8,7 @@ The pilot now has a reproducible, source-explicit DUID crosswalk and a complete 
 - A captured OpenElectricity facility export supplies unit fuel technology where available. It is labelled as a secondary source in every affected crosswalk row.
 - AEMO `BIDIRECTIONAL` units observed in the pilot are assigned to `BATTERY` under a separately named pilot rule. This rule is not applied to an unreviewed future vintage because a bidirectional unit can in principle include pumped hydro.
 
-The generated `data/interim/duid_crosswalk.csv` contains 22,202 effective-dated rows for 977 DUIDs. Raw reference inputs, their exact URLs, byte counts, capture times and SHA-256 checksums are recorded in `data/external/reference_manifest.csv`. These generated files are intentionally ignored by Git and can be rebuilt with:
+The generated `data/interim/duid_crosswalk.csv` contains 22,202 effective-dated rows for 977 DUIDs. Raw reference inputs, their exact URLs, byte counts, capture times and SHA-256 checksums are recorded in `data/external/reference_manifest.csv`. These generated files are ignored by Git and can be rebuilt with:
 
 ```bash
 python -m src.duid_mapping
